@@ -23,7 +23,7 @@
       href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'%3E%3Cpath fill='%23005566' d='M6 24L24 9l18 15v15H6z'/%3E%3Cpath fill='%23ffffff' d='M18 39V27h12v12z'/%3E%3C/svg%3E"
     />
 
-    <!-- Tailwind (CDN for static HTML). Remove if you have a build step. -->
+    <!-- Tailwind CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -43,44 +43,43 @@
             fontFamily: {
               munday: ['"Playfair Display"', "serif"],
             },
+            screens: {
+              // slightly earlier tablet breakpoint helps forms/cards stack better
+              xs: "420px",
+            },
           },
         },
       };
     </script>
-
-    <style>
-      /* Only for hiding elements before JS applies classes (no styling). */
-      [data-js-hidden] {
-        display: none;
-      }
-    </style>
 
     <link
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&display=swap"
       rel="stylesheet"
     />
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            fontFamily: { munday: ['"Playfair Display"', "serif"] },
-          },
-        },
-      };
-    </script>
+
+    <!-- Light helpers for mobile polish -->
     <style>
       :root {
-        --brand: #005566; /* same as your Tailwind brand */
-        --brand2: #00a3b4; /* same as your Tailwind brand2 */
+        --brand: #005566;
+        --brand2: #00a3b4;
       }
-      /* base chip */
+      /* Remove mobile tap highlight / bounce */
+      * {
+        -webkit-tap-highlight-color: transparent;
+      }
+      html,
+      body {
+        overscroll-behavior-y: none;
+      }
+
+      /* Segmented chips */
       .seg {
         display: inline-flex;
         align-items: center;
         justify-content: center;
         padding: 0.5rem 0.75rem;
         border-radius: 9999px;
-        border: 1px solid rgb(226 232 240); /* slate-200 */
+        border: 1px solid rgb(226 232 240);
         background: #fff;
         color: #0f172a;
         font-weight: 600;
@@ -89,32 +88,27 @@
       }
       .seg:hover {
         background: #f8fafc;
-      } /* slate-50 */
-
-      /* active chip */
+      }
       .seg.is-active {
         border-color: transparent;
         color: #fff;
         background: linear-gradient(135deg, var(--brand2), var(--brand));
         box-shadow: 0 8px 22px rgba(0, 85, 102, 0.18);
       }
-    </style>
 
-    <style>
-      :root {
-        --brand: #005566;
-        --brand2: #00a3b4;
-      }
-
-      .btn-primary {
+      /* Primary/outline buttons */
+      .btn-primary,
+      .btn-outline {
         display: inline-flex;
         align-items: center;
         justify-content: center;
         gap: 0.5rem;
         width: 100%;
-        padding: 0.75rem 1.25rem;
+        padding: 0.8rem 1.25rem;
         border-radius: 9999px;
         font-weight: 700;
+      }
+      .btn-primary {
         color: #fff;
         background: linear-gradient(135deg, var(--brand2), var(--brand));
         box-shadow: 0 10px 30px rgba(0, 85, 102, 0.18);
@@ -133,22 +127,7 @@
         box-shadow: 0 0 0 4px rgba(0, 163, 180, 0.25),
           0 10px 30px rgba(0, 85, 102, 0.18);
       }
-      .btn-primary[disabled] {
-        opacity: 0.7;
-        cursor: not-allowed;
-        filter: saturate(0.75);
-      }
-
-      /* optional subtle outline style for secondary actions */
       .btn-outline {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 0.5rem;
-        width: 100%;
-        padding: 0.75rem 1.25rem;
-        border-radius: 9999px;
-        font-weight: 700;
         color: #0f172a;
         background: #fff;
         border: 1px solid #e2e8f0;
@@ -158,7 +137,8 @@
         background: #f8fafc;
         box-shadow: 0 4px 16px rgba(15, 23, 42, 0.06);
       }
-      /* spinner used while submitting */
+
+      /* Spinner (if you later add async submit) */
       .btn-spinner {
         width: 1rem;
         height: 1rem;
@@ -174,61 +154,91 @@
       }
     </style>
   </head>
-  <body class="antialiased text-slate-900 bg-slate-50">
-    <!-- Header -->
+
+  <body
+    class="antialiased text-slate-900 bg-slate-50 pb-[env(safe-area-inset-bottom)]"
+  >
+    <!-- Header (now has id=siteHeader for smooth-scroll offset) -->
     <header
+      id="siteHeader"
       class="sticky top-0 z-50 border-b border-slate-200 bg-white/80 backdrop-blur-md backdrop-saturate-150"
     >
       <div
-        class="mx-auto w-[92%] max-w-[1100px] flex items-center justify-between py-3"
+        class="mx-auto w-[96%] md:w-[92%] max-w-[1100px] flex items-center justify-between py-2.5 sm:py-3"
       >
         <!-- Brand -->
         <a
           href="#top"
-          class="flex items-center gap-3"
+          class="flex items-center gap-3 min-w-0 -ml-1"
           aria-label="Winti Immobilien – Startseite"
         >
           <img
             src="Winti%20Logo.png"
             alt="Winti Immobilien Logo"
-            class="h-30 w-auto sm:h-30 md:h-30 lg:h-24 shrink-0 rounded-lg object-contain"
+            class="h-12 xs:h-14 md:h-16 lg:h-20 w-auto shrink-0 object-contain"
             decoding="async"
             loading="eager"
+            width="220"
+            height="80"
           />
         </a>
 
-        <!-- Desktop nav -->
+        <!-- Desktop nav (unchanged) -->
         <nav
-          class="hidden sm:flex items-center gap-6 md:gap-8"
+          class="hidden sm:flex items-center gap-4 md:gap-6"
           aria-label="Hauptnavigation"
         >
           <a
             href="#leistungen"
             class="inline-flex items-center rounded-full px-3 py-2 text-[15px] md:text-[16px] font-semibold text-slate-700 hover:text-slate-900 hover:bg-slate-100 focus:outline-none focus:ring-4 focus:ring-brand/25 transition"
+            >Leistungen</a
           >
-            Leistungen
-          </a>
           <a
             href="#bewertung"
             class="inline-flex items-center rounded-full px-3 py-2 text-[15px] md:text-[16px] font-semibold text-slate-700 hover:text-slate-900 hover:bg-slate-100 focus:outline-none focus:ring-4 focus:ring-brand/25 transition"
+            >Bewertung</a
           >
-            Bewertung
-          </a>
           <a
             href="#kontakt"
             class="inline-flex items-center rounded-full px-3 py-2 text-[15px] md:text-[16px] font-semibold text-slate-700 hover:text-slate-900 hover:bg-slate-100 focus:outline-none focus:ring-4 focus:ring-brand/25 transition"
+            >Kontakt</a
           >
-            Kontakt
-          </a>
+        </nav>
+        <!-- Mobile menu -->
+        <nav
+          id="mobileMenu"
+          class="sm:hidden absolute left-0 right-0 top-full z-[60] bg-white/95 border-b border-slate-200 backdrop-blur opacity-0 translate-y-[-6px] pointer-events-none transition-all duration-200 will-change:transform,opacity"
+          data-js-hidden
+          aria-label="Mobile Navigation"
+          aria-hidden="true"
+        >
+          <div
+            class="mx-auto w-[96%] md:w-[92%] max-w-[1100px] grid gap-2 py-3"
+          >
+            <a
+              href="#leistungen"
+              class="px-3 py-2 rounded-lg hover:bg-slate-100"
+              >Leistungen</a
+            >
+            <a href="#bewertung" class="px-3 py-2 rounded-lg hover:bg-slate-100"
+              >Bewertung</a
+            >
+            <a href="#kontakt" class="px-3 py-2 rounded-lg hover:bg-slate-100"
+              >Kontakt</a
+            >
+            <a
+              href="tel:+41440000000"
+              class="inline-flex items-center justify-center rounded-full bg-brand px-4 py-2 font-semibold text-white"
+            >
+              Anrufen
+            </a>
+          </div>
         </nav>
 
-        <!-- Call to action (desktop) -->
-        <!-- <a href="tel:+41440000000" class="hidden md:inline-flex items-center rounded-full bg-brand px-4 py-2 font-semibold text-white transition hover:brightness-105" aria-label="Jetzt anrufen">Anrufen</a> -->
-
-        <!-- Mobile menu button -->
+        <!-- Mobile menu button (unchanged) -->
         <button
           id="menuBtn"
-          class="sm:hidden inline-flex items-center justify-center h-10 w-10 rounded-lg border border-slate-200 text-slate-700"
+          class="sm:hidden inline-flex items-center justify-center h-11 w-11 rounded-xl border border-slate-200 text-slate-700 active:scale-[.98] transition"
           aria-expanded="false"
           aria-controls="mobileMenu"
           aria-label="Menü öffnen"
@@ -250,30 +260,7 @@
         </button>
       </div>
 
-      <!-- Mobile menu -->
-      <nav
-        id="mobileMenu"
-        class="sm:hidden"
-        data-js-hidden
-        aria-label="Mobile Navigation"
-      >
-        <div class="mx-auto w-[92%] max-w-[1100px] grid gap-2 pb-3">
-          <a href="#leistungen" class="px-3 py-2 rounded-lg hover:bg-slate-100"
-            >Leistungen</a
-          >
-          <a href="#bewertung" class="px-3 py-2 rounded-lg hover:bg-slate-100"
-            >Bewertung</a
-          >
-          <a href="#kontakt" class="px-3 py-2 rounded-lg hover:bg-slate-100"
-            >Kontakt</a
-          >
-          <a
-            href="tel:+41440000000"
-            class="inline-flex items-center justify-center rounded-full bg-brand px-4 py-2 font-semibold text-white"
-            >Anrufen</a
-          >
-        </div>
-      </nav>
+      <!-- mobile menu block stays as you have it -->
     </header>
 
     <!-- Hero -->
@@ -290,31 +277,35 @@
       </div>
 
       <div
-        class="mx-auto w-[92%] max-w-[1100px] grid md:grid-cols-2 gap-8 items-center min-h-[80vh] py-12 md:py-16"
+        class="mx-auto w-[92%] max-w-[1100px] grid md:grid-cols-2 gap-6 md:gap-8 items-center min-h-[72vh] xs:min-h-[78vh] md:min-h-[80vh] py-10 md:py-16"
       >
         <div>
-          <p class="text-sm font-bold uppercase tracking-[0.12em] text-brand">
+          <p
+            class="text-xs xs:text-sm font-bold uppercase tracking-[0.12em] text-brand"
+          >
             Winterthur & Region
           </p>
-          <h1 class="font-munday text-4xl md:text-5xl leading-tight">
+          <h1
+            class="font-munday text-[1.9rem] leading-tight xs:text-[2.2rem] md:text-5xl"
+          >
             Immobilie verkaufen – sicher, transparent, zum besten Preis.
           </h1>
 
-          <p class="mt-3 text-slate-600 max-w-[55ch]">
+          <p class="mt-3 text-slate-600 max-w-[60ch] text-[15px]">
             Wir begleiten Sie persönlich von der Bewertung über die Vermarktung
             bis zum erfolgreichen Abschluss. Ohne Risiko, mit klarer
             Kommunikation.
           </p>
-          <div class="mt-5 flex flex-wrap gap-3">
-            <a href="#bewertung" class="btn-primary md:w-auto"
+          <div class="mt-5 flex flex-col xs:flex-row gap-3">
+            <a href="#bewertung" class="btn-primary xs:w-auto"
               >Kostenlose Bewertung</a
             >
-            <a href="#kontakt" class="btn-outline md:w-auto"
+            <a href="#kontakt" class="btn-outline xs:w-auto"
               >Beratung anfragen</a
             >
           </div>
 
-          <div class="mt-4 grid grid-cols-2 sm:grid-cols-3 gap-2">
+          <div class="mt-4 grid grid-cols-1 xs:grid-cols-3 gap-2">
             <div
               class="text-center rounded-full border border-slate-200 bg-white px-3 py-2 text-sm"
             >
@@ -347,14 +338,14 @@
     </section>
 
     <!-- Leistungen -->
-    <section id="leistungen" class="py-14">
+    <section id="leistungen" class="py-12 sm:py-14">
       <div class="mx-auto w-[92%] max-w-[1100px]">
-        <h2 class="text-3xl font-bold">Unsere Leistungen</h2>
+        <h2 class="text-2xl xs:text-3xl font-bold">Unsere Leistungen</h2>
         <p class="mt-1 text-slate-600">
           Alles aus einer Hand – für einen stressfreien Verkauf.
         </p>
 
-        <div class="mt-6 grid gap-5 sm:grid-cols-2 md:grid-cols-3">
+        <div class="mt-6 grid gap-4 xs:gap-5 sm:grid-cols-2 md:grid-cols-3">
           <div
             class="rounded-xl2 border border-slate-200 bg-white p-5 shadow-soft"
           >
@@ -401,15 +392,14 @@
       </div>
     </section>
 
-    <!-- Bewertung (Lead) – simple & elegant -->
-    <section id="bewertung" class="py-14 scroll-mt-24">
+    <!-- Bewertung (Lead) -->
+    <section id="bewertung" class="py-12 sm:py-14 scroll-mt-24">
       <div class="mx-auto w-[92%] max-w-[1100px]">
-        <!-- Heading + badges -->
         <div
           class="mb-6 flex flex-col gap-3 md:flex-row md:items-end md:justify-between"
         >
           <div>
-            <h2 class="text-3xl font-bold leading-tight">
+            <h2 class="text-2xl xs:text-3xl font-bold leading-tight">
               Kostenlose Immobilienbewertung
             </h2>
             <p class="mt-1 text-slate-600">
@@ -439,14 +429,13 @@
           </ul>
         </div>
 
-        <div class="grid gap-6 md:grid-cols-[1fr_0.9fr]">
+        <div class="grid gap-6 md:grid-cols-[1fr_0.95fr]">
           <!-- LEFT: FORM -->
           <form
             id="valuationForm"
-            class="rounded-xl2 border border-slate-200 bg-white p-6 shadow-soft"
+            class="rounded-xl2 border border-slate-200 bg-white p-5 xs:p-6 shadow-soft"
             aria-label="Bewertungsformular"
           >
-            <!-- Step tags -->
             <div
               class="mb-4 flex flex-wrap gap-2 text-xs font-bold uppercase tracking-wide"
             >
@@ -456,7 +445,6 @@
               >
             </div>
 
-            <!-- Contact row -->
             <div class="grid gap-3 sm:grid-cols-2">
               <label class="grid gap-1">
                 <span class="text-sm font-medium">Ihr Name</span>
@@ -464,7 +452,8 @@
                   name="name"
                   autocomplete="name"
                   required
-                  class="w-full rounded-xl border border-slate-300 bg-white px-3 py-2 outline-none focus:border-brand focus:ring-4 focus:ring-brand/30"
+                  inputmode="text"
+                  class="w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-[16px] outline-none focus:border-brand focus:ring-4 focus:ring-brand/30"
                 />
               </label>
               <label class="grid gap-1">
@@ -474,7 +463,8 @@
                   name="email"
                   autocomplete="email"
                   required
-                  class="w-full rounded-xl border border-slate-300 bg-white px-3 py-2 outline-none focus:border-brand focus:ring-4 focus:ring-brand/30"
+                  inputmode="email"
+                  class="w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-[16px] outline-none focus:border-brand focus:ring-4 focus:ring-brand/30"
                 />
               </label>
             </div>
@@ -485,7 +475,8 @@
                 <input
                   name="phone"
                   autocomplete="tel"
-                  class="w-full rounded-xl border border-slate-300 bg-white px-3 py-2 outline-none focus:border-brand focus:ring-4 focus:ring-brand/30"
+                  inputmode="tel"
+                  class="w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-[16px] outline-none focus:border-brand focus:ring-4 focus:ring-brand/30"
                 />
               </label>
               <label class="grid gap-1">
@@ -493,21 +484,18 @@
                 <input
                   name="city"
                   placeholder="z. B. Winterthur, Seen"
-                  class="w-full rounded-xl border border-slate-300 bg-white px-3 py-2 outline-none focus:border-brand focus:ring-4 focus:ring-brand/30"
+                  class="w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-[16px] outline-none focus:border-brand focus:ring-4 focus:ring-brand/30"
                 />
               </label>
             </div>
 
-            <!-- Step tag -->
             <div class="mt-6 mb-2">
               <span
                 class="rounded-lg border border-slate-200 bg-brand/5 px-2.5 py-1 text-xs font-bold uppercase tracking-wide text-brand"
+                >2/2 – Objekt & Ziel</span
               >
-                2/2 – Objekt & Ziel
-              </span>
             </div>
 
-            <!-- Chips -->
             <div class="grid gap-4">
               <!-- Immobilientyp -->
               <div class="grid gap-1.5">
@@ -600,17 +588,15 @@
               </div>
             </div>
 
-            <!-- Details -->
             <label class="mt-4 grid gap-1">
               <span class="text-sm font-medium">Objekt-Details</span>
               <textarea
                 name="details"
                 placeholder="z. B. 4.5 Zimmer, Baujahr, Zustand, Besonderheiten …"
-                class="min-h-[120px] w-full resize-y rounded-xl border border-slate-300 bg-white px-3 py-2 outline-none focus:border-brand focus:ring-4 focus:ring-brand/30"
+                class="min-h-[120px] w-full resize-y rounded-xl border border-slate-300 bg-white px-3 py-2 text-[16px] outline-none focus:border-brand focus:ring-4 focus:ring-brand/30"
               ></textarea>
             </label>
 
-            <!-- CTA -->
             <div class="mt-5 grid gap-2">
               <button type="submit" id="valuationSubmit" class="btn-primary">
                 Anfrage senden
@@ -622,11 +608,10 @@
             </div>
           </form>
 
-          <!-- RIGHT: Process + Social proof -->
+          <!-- RIGHT -->
           <aside class="grid gap-6">
-            <!-- Process -->
             <div
-              class="rounded-xl2 border border-slate-200 bg-white p-6 shadow-soft"
+              class="rounded-xl2 border border-slate-200 bg-white p-5 xs:p-6 shadow-soft"
             >
               <h3 class="font-semibold">So läuft’s ab</h3>
               <ol class="mt-3 space-y-3">
@@ -679,9 +664,8 @@
               </div>
             </div>
 
-            <!-- Testimonials -->
             <div
-              class="rounded-xl2 border border-slate-200 bg-white p-6 shadow-soft"
+              class="rounded-xl2 border border-slate-200 bg-white p-5 xs:p-6 shadow-soft"
             >
               <h3 class="font-semibold">Kundenstimmen</h3>
               <div class="mt-3 space-y-3">
@@ -734,24 +718,25 @@
     </section>
 
     <!-- Kontakt -->
-    <section id="kontakt" class="py-14">
+    <section id="kontakt" class="py-12 sm:py-14">
       <div class="mx-auto w-[92%] max-w-[1100px]">
-        <p class="text-sm font-bold uppercase tracking-[0.12em] text-brand">
+        <p
+          class="text-xs xs:text-sm font-bold uppercase tracking-[0.12em] text-brand"
+        >
           Kontakt
         </p>
-        <h2 class="mt-1 text-3xl font-bold">Kontakt aufnehmen</h2>
+        <h2 class="mt-1 text-2xl xs:text-3xl font-bold">Kontakt aufnehmen</h2>
         <p class="mt-1 max-w-[60ch] text-slate-600">
           Haben Sie Fragen oder möchten Sie Ihre Immobilie verkaufen?
           Kontaktieren Sie uns direkt:
         </p>
 
         <div class="mt-5 grid gap-5 md:grid-cols-2">
-          <!-- Map + actions -->
           <div
             class="rounded-xl2 border border-slate-200 bg-white p-3 shadow-soft"
           >
             <iframe
-              class="h-80 w-full rounded-xl border-0"
+              class="h-72 xs:h-80 w-full rounded-xl border-0"
               loading="lazy"
               referrerpolicy="no-referrer-when-downgrade"
               src="https://www.google.com/maps?q=Winterthur,+Switzerland&hl=de&z=12&output=embed"
@@ -770,13 +755,17 @@
                 href="https://maps.google.com/?q=Musterstrasse+10,+8400+Winterthur"
                 >Adresse öffnen</a
               >
+              <a
+                class="inline-flex items-center rounded-full border border-slate-200 bg-white px-4 py-2 font-semibold hover:bg-slate-50"
+                href="tel:+41440000000"
+                >Anrufen</a
+              >
             </div>
           </div>
 
-          <!-- Contact form -->
           <form
             id="contactForm"
-            class="rounded-xl2 border border-slate-200 bg-white p-5 shadow-soft"
+            class="rounded-xl2 border border-slate-200 bg-white p-5 xs:p-6 shadow-soft"
             aria-label="Kontaktformular"
           >
             <label class="grid gap-1">
@@ -788,12 +777,12 @@
                 name="name"
                 placeholder="Vor- und Nachname"
                 required
-                class="w-full rounded-xl border border-slate-300 bg-white px-3 py-2 outline-none focus:border-brand focus:ring-4 focus:ring-brand/30"
+                class="w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-[16px] outline-none focus:border-brand focus:ring-4 focus:ring-brand/30"
               />
             </label>
             <label class="mt-3 grid gap-1">
               <span class="text-sm font-medium"
-                >E‑Mail
+                >E-Mail
                 <span aria-hidden="true" class="text-green-600">*</span></span
               >
               <input
@@ -801,7 +790,7 @@
                 name="email"
                 placeholder="name@domain.ch"
                 required
-                class="w-full rounded-xl border border-slate-300 bg-white px-3 py-2 outline-none focus:border-brand focus:ring-4 focus:ring-brand/30"
+                class="w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-[16px] outline-none focus:border-brand focus:ring-4 focus:ring-brand/30"
               />
             </label>
             <label class="mt-3 grid gap-1">
@@ -813,7 +802,7 @@
                 name="message"
                 placeholder="Wie können wir helfen?"
                 required
-                class="min-h-[120px] w-full resize-y rounded-xl border border-slate-300 bg-white px-3 py-2 outline-none focus:border-brand focus:ring-4 focus:ring-brand/30"
+                class="min-h-[120px] w-full resize-y rounded-xl border border-slate-300 bg-white px-3 py-2 text-[16px] outline-none focus:border-brand focus:ring-4 focus:ring-brand/30"
               ></textarea>
             </label>
             <button
@@ -898,23 +887,41 @@
       const $ = (s, r = document) => r.querySelector(s);
       const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
 
-      /* ---------------- Mobile menu toggle ---------------- */
+      /* Mobile menu toggle + animation */
       const menuBtn = $("#menuBtn");
       const mobileMenu = $("#mobileMenu");
       if (menuBtn && mobileMenu) {
-        menuBtn.addEventListener("click", () => {
-          const open = !mobileMenu.hasAttribute("data-js-hidden");
+        function setOpen(open) {
           if (open) {
-            mobileMenu.setAttribute("data-js-hidden", "");
-            menuBtn.setAttribute("aria-expanded", "false");
-          } else {
+            mobileMenu.classList.remove(
+              "pointer-events-none",
+              "opacity-0",
+              "translate-y-[-6px]"
+            );
             mobileMenu.removeAttribute("data-js-hidden");
             menuBtn.setAttribute("aria-expanded", "true");
+          } else {
+            mobileMenu.classList.add(
+              "pointer-events-none",
+              "opacity-0",
+              "translate-y-[-6px]"
+            );
+            mobileMenu.setAttribute("data-js-hidden", "");
+            menuBtn.setAttribute("aria-expanded", "false");
           }
+        }
+        menuBtn.addEventListener("click", () => {
+          const open = mobileMenu.hasAttribute("data-js-hidden");
+          setOpen(open);
+        });
+        // Close menu when a mobile link is clicked
+        $("#mobileMenu")?.addEventListener("click", (e) => {
+          const a = e.target.closest("a[href^='#']");
+          if (a) setOpen(false);
         });
       }
 
-      /* ---------------- Toast helper ---------------- */
+      /* Toast helper */
       const toast = $("#toast");
       function showToast(msg) {
         if (!toast) return;
@@ -926,7 +933,7 @@
         );
       }
 
-      /* ---------------- Form submit (mailto fallback — no backend) ---------------- */
+      /* Mailto submit (frontend only) */
       function handleSubmit(e) {
         e.preventDefault();
         const form = e.currentTarget;
@@ -954,12 +961,10 @@
       $("#contactForm")?.addEventListener("submit", handleSubmit);
       $("#year") && ($("#year").textContent = new Date().getFullYear());
 
-      /* ---------------- Segmented chips (simple .is-active toggler) ---------------- */
+      /* Segmented chips */
       function setupSeg(group) {
         const name = group.getAttribute("data-seg");
         if (!name) return;
-
-        // hidden field to hold current value
         let hidden = group.parentElement.querySelector(
           `input[type="hidden"][name="${name}"]`
         );
@@ -969,10 +974,7 @@
           hidden.name = name;
           group.parentElement.appendChild(hidden);
         }
-
         const btns = $$("button.seg", group);
-
-        // initialize ARIA + default value
         btns.forEach((btn, i) => {
           btn.setAttribute("role", "radio");
           const active = btn.classList.contains("is-active");
@@ -995,8 +997,6 @@
             }
           });
         });
-
-        // ensure one default active
         if (!btns.some((b) => b.classList.contains("is-active")) && btns.length)
           activate(0);
 
@@ -1016,7 +1016,7 @@
       }
       document.querySelectorAll("#valuationForm [data-seg]").forEach(setupSeg);
 
-      /* ---------------- Smooth scroll (accounts for sticky header) ---------------- */
+      /* Smooth scroll (accounts for sticky header) */
       const header = document.getElementById("siteHeader");
       const headerH = () => (header ? header.offsetHeight + 8 : 0);
       $$('a[href^="#"]').forEach((a) => {
