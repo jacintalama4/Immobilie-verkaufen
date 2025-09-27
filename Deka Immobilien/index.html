@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Deka Immobilien – Immobilie verkaufen in Luzern</title>
+    <meta name="description"
+        content="Immobilie verkaufen in Luzern? Deka Immobilien begleitet Sie von der Bewertung über die Vermarktung bis zum Verkauf – sicher, transparent, zum besten Preis." />
+    <meta property="og:title" content="Deka Immobilien – Immobilie verkaufen in Luzern" />
+    <meta property="og:description"
+        content="Kostenlose Immobilienbewertung & persönliche Beratung. Wir verkaufen Ihr Haus/Ihre Wohnung sicher und zum besten Preis." />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="de_CH" />
+
+    <!-- Icons -->
+    <link rel="icon"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='14' fill='%23059669'/%3E%3Ctext x='50' y='60' text-anchor='middle' font-family='Arial' font-size='42' fill='white'%3ED%3C/text%3E%3C/svg%3E" />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        referrerpolicy="no-referrer" />
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { DEFAULT: '#059669', dark: '#047857', light: '#d1fae5' }, /* emerald */
+                        ink: { DEFAULT: '#0f172a' } /* slate-900 */
+                    },
+                    boxShadow: {
+                        header: '0 1px 0 0 rgba(0,0,0,0.05)'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style type="text/tailwindcss">
+        @layer components {
+      .btn-primary { @apply inline-flex items-center justify-center rounded-lg bg-brand px-6 py-3 font-semibold text-white shadow-sm hover:bg-brand-dark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-dark transition; }
+      .btn-secondary { @apply inline-flex items-center justify-center rounded-lg bg-white text-ink px-6 py-3 font-semibold shadow hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-300 transition; }
+      .btn-soft { @apply inline-flex items-center justify-center rounded-lg bg-brand/10 text-brand px-4 py-2 font-semibold hover:bg-brand/15; }
+      .card { @apply p-6 bg-white shadow rounded-xl; }
+      .field { @apply w-full rounded-lg border border-gray-300 px-4 py-2 placeholder-gray-400 focus:border-brand focus:ring-2 focus:ring-brand/30 outline-none; }
+      .label { @apply block font-semibold mb-2; }
+      .hint { @apply text-sm text-gray-500 mt-1; }
+      .kicker { @apply text-xs md:text-sm font-semibold tracking-wider uppercase text-brand; }
+      .container-w { @apply max-w-6xl mx-auto px-6; }
+      .section { @apply py-16 md:py-20; }
+      .section-muted { @apply section bg-gray-50; }
+
+      /* Toasts */
+      .toast-wrap { @apply fixed top-4 left-1/2 -translate-x-1/2 z-[60] flex flex-col gap-3; }
+      .toast { @apply pointer-events-auto rounded-lg px-4 py-3 shadow-lg text-sm flex items-center gap-2 border; }
+      .toast-enter { @apply opacity-0 -translate-y-2; }
+      .toast-enter-active { @apply opacity-100 translate-y-0 transition-all duration-300; }
+      .toast-exit-active { @apply opacity-0 -translate-y-2 transition-all duration-300; }
+      .toast-success { @apply bg-green-600 text-white border-green-700; }
+      .toast-error { @apply bg-red-600 text-white border-red-700; }
+      .toast-info { @apply bg-gray-900 text-white border-gray-800; }
+    }
+    html { scroll-behavior: smooth; }
+  </style>
+</head>
+
+<body class="font-sans text-gray-800 antialiased">
+    <a href="#main"
+        class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:bg-white focus:text-ink focus:px-3 focus:py-2 focus:rounded">Zum
+        Inhalt springen</a>
+
+    <!-- Header -->
+    <header id="siteHeader" class="sticky top-0 z-40 bg-white/90 backdrop-blur border-b border-gray-100">
+        <!-- full-width row so edges are flush -->
+        <div class="w-full px-4 sm:px-6 flex items-center justify-between py-3 md:py-4">
+            <!-- Left: logo -->
+            <a href="#" class="flex items-center gap-3" aria-label="Deka Immobilien – Startseite">
+                <!-- If the file sits beside this HTML file -->
+                <img src="./deka%20logo.png"
+                    alt="Deka Immobilien Logo"
+                    class="max-h-12 md:max-h-14 block object-contain"
+                    width="200" height="100" />
+                <span class="sr-only">Deka Immobilien</span>
+              </a>
+
+            <!-- Right: nav + CTA -->
+            <div class="ml-auto flex items-center justify-end gap-3 md:gap-6">
+                <nav class="hidden md:flex items-center gap-6 text-base md:text-[1.06rem] lg:text-[1.12rem]">
+                    <a href="#services" class="nav-link">Verkaufsprozess</a>
+                    <a href="#bewertung" class="nav-link">Bewertung</a>
+                    <a href="#kontakt" class="nav-link">Kontakt</a>
+                </nav>
+                <a href="#bewertung" class="btn-soft hidden md:inline-flex">Bewertung starten</a>
+
+                <button id="menuBtn"
+                    class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-lg border"><i
+                        class="fa-solid fa-bars"></i></button>
+            </div>
+        </div>
+
+        <!-- Mobile menu -->
+        <div id="mobileMenu" class="md:hidden hidden border-t bg-white">
+            <nav class="px-4 py-3 flex flex-col gap-2 text-sm">
+                <a href="#services" class="py-2">Verkaufsprozess</a>
+                <a href="#bewertung" class="py-2">Bewertung</a>
+                <a href="#kontakt" class="py-2">Kontakt</a>
+                <a href="https://maps.google.com/?q=Pilatusstrasse%2014%2C%206003%20Luzern" class="btn-primary mt-2"
+                    target="_blank" rel="noopener">
+                    Pilatusstrasse 14, 6003 Luzern
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero: REAL-ESTATE photo -->
+    <section class="relative text-white">
+        <img id="heroImg"
+            src="https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=1920"
+            srcset="
+        https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=1280 1280w,
+        https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=1920 1920w,
+        https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=2560 2560w
+      " sizes="100vw" alt="Moderne Immobilie – Verkauf mit Deka Immobilien Luzern"
+            class="absolute inset-0 w-full h-full object-cover object-center"
+            onerror="this.onerror=null; this.src='https://source.unsplash.com/1920x1080/?real-estate,house,switzerland';"
+            loading="eager" fetchpriority="high" />
+        <!-- overlays (keep yours) -->
+        <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/40"></div>
+        <div class="absolute inset-0 bg-brand/20 mix-blend-multiply"></div>
+
+        <div class="relative container-w py-24 md:py-32 text-center">
+            <p class="kicker mb-3">Immobilie verkaufen in Luzern</p>
+            <h1 class="text-4xl md:text-5xl font-bold leading-tight">
+                Sicher, transparent & zum besten Preis verkaufen
+            </h1>
+            <p class="mt-4 text-lg md:text-xl text-white/90">
+                Kostenlose Bewertung und maßgeschneiderte Vermarktung für Haus & Wohnung in Luzern.
+            </p>
+            <div class="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
+                <a href="#bewertung" class="btn-primary"><i class="fa-regular fa-clipboard me-2"></i>Kostenlose
+                    Bewertung</a>
+                <a href="#services" class="btn-secondary">So arbeiten wir</a>
+            </div>
+
+            <!-- Trust row -->
+            <div class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-4 text-sm text-white/90">
+                <div class="flex items-center justify-center gap-2"><i class="fa-regular fa-circle-check"></i> 20+ Jahre
+                    lokale Erfahrung</div>
+                <div class="flex items-center justify-center gap-2"><i class="fa-regular fa-circle-check"></i>
+                    Verkäufer-fokussiert & diskret</div>
+                <div class="flex items-center justify-center gap-2"><i class="fa-regular fa-circle-check"></i>
+                    Unverbindliche Erstberatung</div>
+            </div>
+        </div>
+    </section>
+
+    <main id="main">
+        <!-- How it works -->
+        <section id="services" class="section-muted">
+            <div class="container-w">
+                <div class="text-center mb-10">
+                    <p class="kicker mb-2">Unser Verkaufsprozess</p>
+                    <h2 class="text-3xl font-bold">In 3 Schritten zum erfolgreichen Verkauf</h2>
+                    <p class="text-gray-600 mt-2 max-w-2xl mx-auto">
+                        Von der Bewertung über die Vermarktung bis zum Vertragsabschluss – klar, schnell und
+                        zuverlässig.
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="card">
+                        <div class="mb-4 flex items-center justify-center">
+                            <i class="fa-solid fa-clipboard-list text-brand text-5xl" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="font-semibold text-xl mb-2">1) Bewertung</h3>
+                        <p class="text-gray-600">Realistische Preisspanne durch lokale Vergleichsdaten und
+                            Objektanalyse.</p>
+                    </div>
+
+                    <div class="card">
+                        <div class="mb-4 flex items-center justify-center">
+                            <i class="fa-solid fa-bullhorn text-brand text-5xl" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="font-semibold text-xl mb-2">2) Vermarktung</h3>
+                        <p class="text-gray-600">Professionelles Exposé, Online-Präsenz, Besichtigungen &
+                            Interessenten-Management.</p>
+                    </div>
+
+                    <div class="card">
+                        <div class="mb-4 flex items-center justify-center">
+                            <i class="fa-solid fa-file-signature text-brand text-5xl" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="font-semibold text-xl mb-2">3) Verkauf</h3>
+                        <p class="text-gray-600">Sichere Verhandlungen & Begleitung bis zum Notartermin und Übergabe.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mt-10 flex justify-center">
+                    <a href="#bewertung" class="btn-primary">Jetzt kostenlos bewerten lassen</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bewertung (Lead form) -->
+        <section id="bewertung" class="section">
+            <div class="container-w">
+                <div class="text-center mb-8">
+                    <p class="kicker mb-2">Kostenlose Immobilienbewertung</p>
+                    <h2 class="text-3xl font-bold">Unverbindliche Einschätzung für Ihre Immobilie</h2>
+                    <p class="text-gray-600 mt-2">Füllen Sie das Formular aus – wir melden uns innerhalb von 24 Stunden.
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8">
+                    <form id="valuationForm" class="card space-y-5" data-endpoint="https://formspree.io/f/xxxxxxxx">
+                        <!-- TODO: replace with your Formspree ID -->
+                        <div>
+                            <label class="label">Name <span class="text-brand">*</span></label>
+                            <input type="text" name="name" required placeholder="Max Muster" class="field">
+                        </div>
+                        <div>
+                            <label class="label">Telefonnummer <span class="text-brand">*</span></label>
+                            <input type="tel" name="phone" required placeholder="+41 79 555 55 55" class="field"
+                                pattern="^\\+?\\d[\\d\\s]{8,}$">
+                            <p class="hint">Beispiel: +41 79 555 55 55</p>
+                        </div>
+                        <div>
+                            <label class="label">E-Mail <span class="text-brand">*</span></label>
+                            <input type="email" name="email" required placeholder="max@muster.ch" class="field">
+                        </div>
+                        <div>
+                            <label class="label">Immobilientyp <span class="text-brand">*</span></label>
+                            <select name="type" required class="field">
+                                <option value="">Bitte wählen</option>
+                                <option>Haus</option>
+                                <option>Wohnung</option>
+                                <option>Grundstück</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="label">Adresse (optional)</label>
+                            <input type="text" name="address" placeholder="Straße, Nr., PLZ, Ort" class="field">
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <input id="consent" type="checkbox" required
+                                class="mt-1 h-4 w-4 rounded border-gray-300 text-brand focus:ring-brand">
+                            <label for="consent" class="text-sm text-gray-600">Ich stimme der Kontaktaufnahme gemäß
+                                Datenschutzhinweis zu.</label>
+                        </div>
+
+                        <input type="hidden" name="_subject" value="Neue Bewertung – Deka Immobilien" />
+                        <input type="text" name="_gotcha" class="hidden" tabindex="-1" autocomplete="off" />
+
+                        <button type="submit" class="btn-primary w-full">Anfrage absenden</button>
+                        <p class="hint text-center">Unverbindlich & kostenlos</p>
+                    </form>
+
+                    <div class="card">
+                        <h3 class="font-semibold text-xl mb-3">Was Sie erhalten</h3>
+                        <ul class="space-y-3 text-gray-700">
+                            <li class="flex gap-3"><i
+                                    class="fa-regular fa-circle-check text-brand mt-1"></i><span>Realistische
+                                    Preisspanne basierend auf Luzerner Marktdaten.</span></li>
+                            <li class="flex gap-3"><i
+                                    class="fa-regular fa-circle-check text-brand mt-1"></i><span>Konkrete
+                                    Vermarktungsstrategie für Ihr Objekt.</span></li>
+                            <li class="flex gap-3"><i
+                                    class="fa-regular fa-circle-check text-brand mt-1"></i><span>Unverbindliche
+                                    Erstberatung durch lokale Experten.</span></li>
+                        </ul>
+
+                        <!-- Mini FAQ -->
+                        <div class="mt-6 divide-y rounded-lg border">
+                            <details class="p-4 group">
+                                <summary class="cursor-pointer font-medium flex items-center justify-between">
+                                    Wie schnell erhalte ich die Einschätzung?
+                                    <i
+                                        class="fa-solid fa-chevron-down text-gray-400 group-open:rotate-180 transition"></i>
+                                </summary>
+                                <p class="pt-3 text-gray-600">Normalerweise innerhalb von 24 Stunden nach Ihrer Anfrage.
+                                </p>
+                            </details>
+                            <details class="p-4 group">
+                                <summary class="cursor-pointer font-medium flex items-center justify-between">
+                                    Ist die Bewertung wirklich kostenlos?
+                                    <i
+                                        class="fa-solid fa-chevron-down text-gray-400 group-open:rotate-180 transition"></i>
+                                </summary>
+                                <p class="pt-3 text-gray-600">Ja. Die Bewertung ist unverbindlich und kostenlos.</p>
+                            </details>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Kontakt -->
+        <section id="kontakt" class="section">
+            <div class="container-w grid md:grid-cols-2 gap-10 items-center">
+                <div>
+                    <p class="kicker mb-2">Kontakt</p>
+                    <h2 class="text-3xl font-bold mb-4">Kontakt aufnehmen</h2>
+                    <p class="mb-4 text-gray-600">Haben Sie Fragen oder möchten Sie Ihre Immobilie verkaufen?
+                        Kontaktieren Sie uns direkt:</p>
+                    <div class="rounded-xl overflow-hidden border">
+                        <iframe src="https://maps.google.com/maps?q=Luzern&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                            width="100%" height="260" title="Karte Luzern"></iframe>
+                    </div>
+                    <div class="mt-4 flex gap-3 flex-wrap">
+                       
+                        <a href="#bewertung" class="btn-secondary">Bewertung anfragen</a>
+                        <a href="https://maps.google.com/?q=Pilatusstrasse%2014%2C%206003%20Luzern"
+                            class="btn-secondary" target="_blank" rel="noopener">
+                            Adresse öffnen
+                        </a>
+                    </div>
+
+                </div>
+
+                <form id="contactForm" class="card space-y-5" data-endpoint="https://formspree.io/f/xxxxxxxx">
+                    <!-- TODO: replace -->
+                    <div>
+                        <label class="label">Name <span class="text-brand">*</span></label>
+                        <input type="text" name="c_name" required placeholder="Vor- und Nachname" class="field">
+                    </div>
+                    <div>
+                        <label class="label">E-Mail <span class="text-brand">*</span></label>
+                        <input type="email" name="c_email" required placeholder="name@domain.ch" class="field">
+                    </div>
+                    <div>
+                        <label class="label">Nachricht <span class="text-brand">*</span></label>
+                        <textarea name="c_message" rows="4" required placeholder="Wie können wir helfen?"
+                            class="field"></textarea>
+                    </div>
+
+                    <input type="hidden" name="_subject" value="Kontaktanfrage – Deka Immobilien" />
+                    <input type="text" name="_gotcha" class="hidden" tabindex="-1" autocomplete="off" />
+
+                    <button type="submit" class="btn-primary w-full">Nachricht senden</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300">
+        <div class="container-w py-8 flex flex-col md:flex-row gap-4 md:gap-0 justify-between items-center">
+            <p>&copy; 2025 Deka Immobilien – Immobilienmakler Luzern</p>
+            <div class="flex items-center gap-3">
+                <a href="#bewertung" class="btn-secondary">Bewertung anfragen</a>
+
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toasts -->
+    <div id="toastWrap" class="toast-wrap" aria-live="polite" aria-atomic="true"></div>
+
+    <!-- Sticky mobile call button -->
+    <a href="tel:+41415555555"
+        class="fixed bottom-4 right-4 md:hidden px-5 py-3 rounded-full shadow-lg bg-brand text-white font-semibold">
+        <i class="fa-solid fa-phone mr-2"></i> Anrufen
+    </a>
+
+    <!-- JS: menu, header shadow, Formspree, toasts -->
+    <script>
+        // Mobile menu toggle
+        document.getElementById('menuBtn')?.addEventListener('click', () => {
+            document.getElementById('mobileMenu')?.classList.toggle('hidden');
+        });
+
+        // Header shadow on scroll
+        const siteHeader = document.getElementById('siteHeader');
+        const onScroll = () => {
+            if (window.scrollY > 4) siteHeader.classList.add('shadow-header');
+            else siteHeader.classList.remove('shadow-header');
+        };
+        window.addEventListener('scroll', onScroll); onScroll();
+
+        // ----- Toasts -----
+        function toast(message, type = 'info', timeout = 2500) {
+            const wrap = document.getElementById('toastWrap');
+            const el = document.createElement('div');
+            el.className = `toast toast-${type} toast-enter`;
+            el.innerHTML = `
+        <span class="inline-flex items-center justify-center w-5">
+          ${type === 'success' ? '<i class="fa-solid fa-check"></i>'
+                    : type === 'error' ? '<i class="fa-solid fa-triangle-exclamation"></i>'
+                        : '<i class="fa-solid fa-circle-info"></i>'}
+        </span>
+        <span>${message}</span>`;
+            wrap.appendChild(el);
+            requestAnimationFrame(() => el.classList.add('toast-enter-active'));
+            setTimeout(() => {
+                el.classList.remove('toast-enter-active');
+                el.classList.add('toast-exit-active');
+                setTimeout(() => el.remove(), 300);
+            }, timeout);
+        }
+
+        function prepareFormData(fd, subject) {
+            const email = fd.get('email') || fd.get('c_email');
+            if (email && !fd.get('_replyto')) fd.append('_replyto', email);
+            if (!fd.get('_subject') && subject) fd.append('_subject', subject);
+            return fd;
+        }
+
+        async function wireForm(formId, subject) {
+            const form = document.getElementById(formId);
+            if (!form) return;
+            const endpoint = form.getAttribute('data-endpoint');
+
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const fd = new FormData(form);
+                if (fd.get('_gotcha')) return;
+
+                toast('Senden…', 'info', 1200);
+
+                try {
+                    const res = await fetch(endpoint, { method: 'POST', headers: { 'Accept': 'application/json' }, body: prepareFormData(fd, subject) });
+                    let data = null; try { data = await res.json(); } catch (_) { }
+                    if (res.ok) {
+                        form.reset();
+                        toast(formId === 'valuationForm' ? 'Vielen Dank! Wir melden uns in Kürze.' : 'Nachricht gesendet. Wir kontaktieren Sie bald.', 'success', 2800);
+                        console.info('Form OK', data || {});
+                    } else {
+                        toast('Fehler beim Senden. Bitte später erneut versuchen.', 'error', 3200);
+                        console.error('Form error', res.status, data || {});
+                    }
+                } catch (err) {
+                    toast('Netzwerkfehler. Bitte erneut versuchen.', 'error', 3200);
+                    console.error('Network error', err);
+                }
+            });
+        }
+
+        wireForm('valuationForm', 'Neue Bewertung – Deka Immobilien');
+        wireForm('contactForm', 'Kontaktanfrage – Deka Immobilien');
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Immobilie verkaufen in St. Gallen? Gallen Immobilien ist Ihr Immobilienmakler für Haus- und Wohnungsverkauf. Kostenlose Immobilienbewertung & persönliche Beratung.">
+  <meta property="og:title" content="Gallen Immobilien – Immobilie verkaufen in St. Gallen">
+  <meta property="og:description" content="Kostenlose Immobilienbewertung & persönliche Beratung. Wir verkaufen Ihr Haus/Ihre Wohnung sicher und zum besten Preis.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="de_CH">
+  <title>Gallen Immobilien – Immobilien verkaufen in St. Gallen</title>
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" referrerpolicy="no-referrer" />
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: { DEFAULT: '#dc2626', dark: '#b91c1c', light: '#fee2e2' }
+          },
+          boxShadow: {
+            header: '0 2px 12px rgba(0,0,0,.06)'
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Component layer -->
+  <style type="text/tailwindcss">
+    @layer components {
+      .btn-primary { @apply inline-flex items-center justify-center rounded-xl bg-brand px-6 py-3 font-semibold text-white shadow-sm hover:bg-brand-dark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-dark transition; }
+      .btn-secondary { @apply inline-flex items-center justify-center rounded-xl bg-white text-gray-900 px-6 py-3 font-semibold shadow hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-300 transition; }
+      .card { @apply p-6 bg-white shadow rounded-2xl; }
+      .field { @apply w-full rounded-xl border border-gray-300 px-4 py-2.5 placeholder-gray-400 focus:border-brand focus:ring-2 focus:ring-brand/30 outline-none; }
+      .label { @apply block font-semibold mb-2; }
+      .hint { @apply text-sm text-gray-500 mt-1; }
+      .container-w { @apply max-w-6xl mx-auto px-6; }
+      .section { @apply py-16 md:py-20; }
+      .section-muted { @apply section bg-gray-50; }
+      .kicker { @apply text-sm font-semibold tracking-[0.16em] uppercase text-brand; }
+      .nav-link { @apply relative transition-colors hover:text-brand; }
+      .nav-link:after { content: ""; @apply absolute left-0 -bottom-1 h-0.5 w-0 bg-brand transition-all; }
+      .nav-link:hover:after { @apply w-full; }
+
+      /* Toasts */
+      .toast-wrap { @apply fixed top-4 left-1/2 -translate-x-1/2 z-[60] flex flex-col gap-3; }
+      .toast { @apply pointer-events-auto rounded-lg px-4 py-3 shadow-lg text-sm flex items-center gap-2 border; }
+      .toast-enter { @apply opacity-0 -translate-y-2; }
+      .toast-enter-active { @apply opacity-100 translate-y-0 transition-all duration-300; }
+      .toast-exit { @apply opacity-100 translate-y-0; }
+      .toast-exit-active { @apply opacity-0 -translate-y-2 transition-all duration-300; }
+      .toast-success { @apply bg-green-600 text-white border-green-700; }
+      .toast-error { @apply bg-red-600 text-white border-red-700; }
+      .toast-info { @apply bg-gray-900 text-white border-gray-800; }
+    }
+    html { scroll-behavior: smooth; }
+  </style>
+</head>
+
+<body class="font-sans text-gray-800 antialiased">
+  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:bg-white focus:text-gray-900 focus:px-3 focus:py-2 focus:rounded">Zum Inhalt springen</a>
+
+  <!-- Header -->
+  <header id="siteHeader" class="sticky top-0 z-40 bg-white/90 backdrop-blur border-b border-gray-100 transition-shadow">
+    <div class="w-full px-4 sm:px-6">
+      <!-- Grid: logo | nav | cta -->
+      <div class="grid grid-cols-[auto_1fr_auto] items-center gap-4 md:gap-6 py-3 md:py-4">
+        <!-- Logo -->
+        <a href="#" class="flex items-center gap-3" aria-label="Gallen Immobilien – Startseite">
+          <img
+            src="./GI%20logo.png"
+            alt="Gallen Immobilien Logo"
+            class="block w-auto object-contain shrink-0 max-h-12 md:max-h-16 lg:max-h-20"
+            loading="eager" fetchpriority="high" decoding="async"
+          />
+          <span class="sr-only">Gallen Immobilien</span>
+        </a>
+
+        <!-- Desktop nav -->
+        <nav class="hidden md:flex justify-center items-center gap-8 lg:gap-10 text-base lg:text-xl font-medium">
+          <a href="#services" class="nav-link">Verkaufsprozess</a>
+          <a href="#bewertung" class="nav-link">Bewertung</a>
+          <a href="#kontakt" class="nav-link">Kontakt</a>
+        </nav>
+
+        <!-- CTA + Mobile toggle -->
+        <div class="flex items-center gap-3">
+          <a href="tel:+41791234567" class="btn-primary hidden md:inline-flex text-base lg:text-xl px-6 py-3 lg:px-8 lg:py-4 rounded-xl lg:rounded-2xl">Jetzt anrufen</a>
+          <button id="menuBtn" class="md:hidden inline-flex items-center justify-center w-11 h-11 rounded-xl border border-gray-200 bg-white shadow-sm" aria-label="Menü öffnen" aria-expanded="false">
+            <i class="fa-solid fa-bars text-lg"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile menu panel -->
+    <div id="mobileMenu" class="md:hidden hidden border-t border-gray-100 bg-white/95 backdrop-blur">
+      <div class="px-4 sm:px-6 py-3 flex flex-col gap-2 text-base">
+        <a href="#services" class="py-2 nav-link">Verkaufsprozess</a>
+        <a href="#bewertung" class="py-2 nav-link">Bewertung</a>
+        <a href="#kontakt" class="py-2 nav-link">Kontakt</a>
+        <a href="tel:+41791234567" class="btn-primary mt-2">Jetzt anrufen</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="relative text-white min-h-[72vh] md:min-h-[80vh] lg:min-h-[86vh] flex items-center">
+    <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1600&auto=format&fit=crop" alt="Haus verkaufen St. Gallen – professionelle Begleitung" class="absolute inset-0 w-full h-full object-cover">
+    <div class="absolute inset-0 bg-gradient-to-b from-gray-900/75 via-gray-900/65 to-gray-900/60"></div>
+
+    <div class="relative container-w text-center">
+      <p class="kicker mb-4">Immobilie verkaufen in St. Gallen</p>
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight">Sicher, schnell &amp; zum besten Preis verkaufen</h1>
+      <p class="mt-5 text-lg md:text-xl text-white/95 max-w-3xl mx-auto">Kostenlose Immobilienbewertung &amp; persönliche Beratung – spezialisiert auf Haus- und Wohnungsverkauf.</p>
+
+      <div class="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
+        <a href="#bewertung" class="btn-primary">Kostenlose Bewertung anfragen</a>
+        <a href="#services" class="btn-secondary">So arbeiten wir</a>
+      </div>
+
+      <ul class="mt-8 flex flex-wrap justify-center gap-x-8 gap-y-3 text-sm md:text-base text-white/90">
+        <li class="flex items-center gap-2"><i class="fa-regular fa-circle-check"></i><span>20+ Jahre Erfahrung</span></li>
+        <li class="flex items-center gap-2"><i class="fa-regular fa-circle-check"></i><span>Lokaler Markt-St.Gallen</span></li>
+        <li class="flex items-center gap-2"><i class="fa-regular fa-circle-check"></i><span>Unverbindliche Erstberatung</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <main id="main">
+    <!-- Services -->
+    <section id="services" class="section-muted">
+      <div class="container-w text-center">
+        <p class="kicker mb-2">Unser Verkaufsprozess</p>
+        <h2 class="text-3xl md:text-4xl font-bold mb-3">In 3 Schritten zum erfolgreichen Verkauf</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto mb-10">Von der Bewertung über die Vermarktung bis zum Vertragsabschluss – wir begleiten Sie transparent und zuverlässig.</p>
+
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="card hover:shadow-lg transition-shadow">
+            <div class="mb-4 flex items-center justify-center">
+              <i class="fa-solid fa-chart-simple text-brand text-5xl" aria-hidden="true"></i>
+              <span class="sr-only">Bewertung</span>
+            </div>
+            <h3 class="font-semibold text-xl mb-2">Bewertung</h3>
+            <p class="text-gray-600">Realistischer Marktwert durch lokale Expertise und aktuelle Vergleichsdaten.</p>
+          </div>
+
+          <div class="card hover:shadow-lg transition-shadow">
+            <div class="mb-4 flex items-center justify-center">
+              <i class="fa-solid fa-timeline text-brand text-5xl" aria-hidden="true"></i>
+              <span class="sr-only">Vermarktung</span>
+            </div>
+            <h3 class="font-semibold text-xl mb-2">Vermarktung</h3>
+            <p class="text-gray-600">Professionelle Präsentation, Netzwerk &amp; Anfragenmanagement für maximale Nachfrage.</p>
+          </div>
+
+          <div class="card hover:shadow-lg transition-shadow">
+            <div class="mb-4 flex items-center justify-center">
+              <i class="fa-solid fa-magnifying-glass-dollar text-brand text-5xl" aria-hidden="true"></i>
+              <span class="sr-only">Verkauf</span>
+            </div>
+            <h3 class="font-semibold text-xl mb-2">Verkauf</h3>
+            <p class="text-gray-600">Sichere Verhandlungen &amp; Begleitung bis zum Notartermin und Abschluss.</p>
+          </div>
+        </div>
+
+        <a href="#bewertung" class="btn-primary mt-10">Jetzt kostenlos bewerten lassen</a>
+      </div>
+    </section>
+
+    <!-- Bewertung (Lead form) -->
+    <section id="bewertung" class="section">
+      <div class="container-w">
+        <div class="text-center mb-8">
+          <p class="kicker mb-2">Kostenlose Immobilienbewertung</p>
+          <h2 class="text-3xl md:text-4xl font-bold">Starten Sie mit einer unverbindlichen Einschätzung</h2>
+          <p class="text-gray-600 mt-2">Füllen Sie das Formular aus – wir melden uns innerhalb von 24 Stunden.</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8">
+          <form id="valuationForm" class="card space-y-5" data-endpoint="https://formspree.io/f/xpwywebp">
+            <div>
+              <label class="label">Name <span class="text-brand">*</span></label>
+              <input type="text" name="name" required placeholder="Max Muster" class="field">
+            </div>
+            <div>
+              <label class="label">Telefonnummer <span class="text-brand">*</span></label>
+              <input type="tel" name="phone" required placeholder="+41 79 555 55 55" class="field" pattern="^\+?\d[\d\s]{8,}$">
+              <p class="hint">Beispiel: +41 79 555 55 55</p>
+            </div>
+            <div>
+              <label class="label">E-Mail <span class="text-brand">*</span></label>
+              <input type="email" name="email" required placeholder="max@muster.ch" class="field">
+            </div>
+            <div>
+              <label class="label">Immobilientyp <span class="text-brand">*</span></label>
+              <select name="type" required class="field">
+                <option value="">Bitte wählen</option>
+                <option>Haus</option>
+                <option>Wohnung</option>
+                <option>Grundstück</option>
+              </select>
+            </div>
+            <div>
+              <label class="label">Adresse (optional)</label>
+              <input type="text" name="address" placeholder="Straße, Nr., PLZ, Ort" class="field">
+            </div>
+            <div class="flex items-start gap-3">
+              <input id="consent" type="checkbox" required class="mt-1 h-4 w-4 rounded border-gray-300 text-brand focus:ring-brand">
+              <label for="consent" class="text-sm text-gray-600">Ich stimme der Kontaktaufnahme gemäß Datenschutzhinweis zu.</label>
+            </div>
+
+            <!-- Formspree helpers -->
+            <input type="hidden" name="_subject" value="Neue Bewertung – Gallen Immobilien" />
+            <input type="text" name="_gotcha" class="hidden" tabindex="-1" autocomplete="off" />
+
+            <button type="submit" class="btn-primary w-full">Anfrage absenden</button>
+            <p class="hint text-center">Unverbindlich &amp; kostenlos</p>
+          </form>
+
+          <div class="card">
+            <h3 class="font-semibold text-xl mb-3">Was Sie erhalten</h3>
+            <ul class="space-y-3 text-gray-700">
+              <li class="flex gap-3"><i class="fa-regular fa-circle-check text-brand mt-1"></i><span>Eine realistische Preisspanne basierend auf Marktdaten.</span></li>
+              <li class="flex gap-3"><i class="fa-regular fa-circle-check text-brand mt-1"></i><span>Hinweise zur Vermarktungsstrategie für Ihre Immobilie.</span></li>
+              <li class="flex gap-3"><i class="fa-regular fa-circle-check text-brand mt-1"></i><span>Unverbindliche Erstberatung durch einen lokalen Experten.</span></li>
+            </ul>
+            <div class="mt-6 rounded-xl bg-brand/5 p-4 text-sm text-gray-600">
+              <strong>Hinweis:</strong> Wir sind auf Verkäufer in St. Gallen spezialisiert. Käuferanfragen bitte über den Kontaktbereich.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trust -->
+    <section class="section-muted">
+      <div class="container-w text-center">
+        <p class="kicker mb-2">Warum Gallen Immobilien?</p>
+        <h2 class="text-3xl md:text-4xl font-bold mb-10">Vertrauen durch Erfahrung &amp; Transparenz</h2>
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="card hover:shadow-lg transition-shadow">
+            <h3 class="font-semibold text-xl mb-2">20+ Jahre Erfahrung</h3>
+            <p class="text-gray-600">Lokaler Immobilienmakler in St. Gallen mit tiefem Marktverständnis.</p>
+          </div>
+          <div class="card hover:shadow-lg transition-shadow">
+            <h3 class="font-semibold text-xl mb-2">Kundenorientiert</h3>
+            <p class="text-gray-600">Individuelle Beratung und maßgeschneiderte Verkaufsstrategien.</p>
+          </div>
+          <div class="card hover:shadow-lg transition-shadow">
+            <h3 class="font-semibold text-xl mb-2">Zuverlässig &amp; Transparent</h3>
+            <p class="text-gray-600">Klare Kommunikation während des gesamten Verkaufsprozesses.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Kontakt -->
+    <section id="kontakt" class="section">
+      <div class="container-w grid md:grid-cols-2 gap-10 items-center">
+        <div>
+          <p class="kicker mb-2">Kontakt</p>
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">Kontakt aufnehmen</h2>
+          <p class="mb-4 text-gray-600">Haben Sie Fragen oder möchten Sie Ihre Immobilie verkaufen? Kontaktieren Sie uns direkt:</p>
+
+          <div class="rounded-2xl overflow-hidden border">
+            <iframe src="https://maps.google.com/maps?q=St.%20Gallen&t=&z=13&ie=UTF8&iwloc=&output=embed" width="100%" height="260" title="Karte St. Gallen" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+
+        <form id="contactForm" class="card space-y-5" data-endpoint="https://formspree.io/f/xpwywebp">
+          <div>
+            <label class="label">Name <span class="text-brand">*</span></label>
+            <input type="text" name="c_name" required placeholder="Vor- und Nachname" class="field">
+          </div>
+          <div>
+            <label class="label">E-Mail <span class="text-brand">*</span></label>
+            <input type="email" name="c_email" required placeholder="name@domain.ch" class="field">
+          </div>
+          <div>
+            <label class="label">Nachricht <span class="text-brand">*</span></label>
+            <textarea name="c_message" rows="4" required placeholder="Wie können wir helfen?" class="field"></textarea>
+          </div>
+
+          <!-- Formspree helpers -->
+          <input type="hidden" name="_subject" value="Kontaktanfrage – Gallen Immobilien" />
+          <input type="text" name="_gotcha" class="hidden" tabindex="-1" autocomplete="off" />
+
+          <button type="submit" class="btn-primary w-full">Nachricht senden</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-300">
+    <div class="container-w py-8 flex flex-col md:flex-row gap-4 md:gap-0 justify-between items-center">
+      <p>&copy; 2025 Gallen Immobilien – Immobilienmakler St. Gallen</p>
+      <div class="flex items-center gap-3">
+        <a href="#bewertung" class="btn-secondary">Bewertung anfragen</a>
+        <a href="tel:+41791234567" class="btn-primary">Jetzt anrufen</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toasts -->
+  <div id="toastWrap" class="toast-wrap" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- Sticky mobile call button -->
+  <a href="tel:+41791234567" class="fixed bottom-4 right-4 md:hidden px-5 py-3 rounded-full shadow-lg bg-brand text-white font-semibold">
+    <i class="fa-solid fa-phone mr-2"></i> Anrufen
+  </a>
+
+  <!-- JS -->
+  <script>
+    // Header shadow on scroll
+    const header = document.getElementById('siteHeader');
+    const onScroll = () => {
+      if (window.scrollY > 8) header.classList.add('shadow-header');
+      else header.classList.remove('shadow-header');
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    // Mobile menu toggle
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    if (menuBtn && mobileMenu) {
+      menuBtn.addEventListener('click', () => {
+        const open = mobileMenu.classList.toggle('hidden') === false;
+        menuBtn.setAttribute('aria-expanded', String(open));
+        menuBtn.innerHTML = open ? '<i class="fa-solid fa-xmark text-lg"></i>' : '<i class="fa-solid fa-bars text-lg"></i>';
+      });
+      // Close menu on nav click
+      mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        menuBtn.setAttribute('aria-expanded', 'false');
+        menuBtn.innerHTML = '<i class="fa-solid fa-bars text-lg"></i>';
+      }));
+    }
+
+    // ---------- Toast system ----------
+    function toast(message, type = 'info', timeout = 2500) {
+      const wrap = document.getElementById('toastWrap');
+      const el = document.createElement('div');
+      el.className = `toast toast-${type} toast-enter`;
+      el.innerHTML = `
+        <span class="inline-flex items-center justify-center w-5">
+          ${type === 'success' ? '<i class="fa-solid fa-check"></i>'
+            : type === 'error' ? '<i class="fa-solid fa-triangle-exclamation"></i>'
+            : '<i class="fa-solid fa-circle-info"></i>'}
+        </span>
+        <span>${message}</span>
+      `;
+      wrap.appendChild(el);
+      requestAnimationFrame(() => {
+        el.classList.remove('toast-enter');
+        el.classList.add('toast-enter-active');
+      });
+      setTimeout(() => {
+        el.classList.remove('toast-enter-active');
+        el.classList.add('toast-exit-active');
+        setTimeout(() => el.remove(), 300);
+      }, timeout);
+    }
+
+    // Helper: FormData → ensure _replyto + subject
+    function prepareFormData(fd, fallbackSubject) {
+      const email = fd.get('email') || fd.get('c_email');
+      if (email && !fd.get('_replyto')) fd.append('_replyto', email);
+      if (!fd.get('_subject') && fallbackSubject) fd.append('_subject', fallbackSubject);
+      return fd;
+    }
+
+    async function wireForm(formId, fallbackSubject) {
+      const form = document.getElementById(formId);
+      if (!form) return;
+      const endpoint = form.getAttribute('data-endpoint');
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const fd = new FormData(form);
+        if (fd.get('_gotcha')) return; // honeypot
+
+        toast('Senden…', 'info', 1200);
+
+        try {
+          const res = await fetch(endpoint, { method: 'POST', headers: { 'Accept': 'application/json' }, body: prepareFormData(fd, fallbackSubject) });
+          let data = null; try { data = await res.json(); } catch (_) {}
+
+          if (res.ok) {
+            form.reset();
+            toast(formId === 'valuationForm' ? 'Vielen Dank! Wir melden uns in Kürze.' : 'Nachricht gesendet. Wir kontaktieren Sie bald.', 'success', 2800);
+            console.info('Formspree OK', data || {});
+          } else {
+            toast('Fehler beim Senden. Bitte später erneut versuchen.', 'error', 3200);
+            console.error('Formspree error', res.status, data || {});
+          }
+        } catch (err) {
+          toast('Netzwerkfehler. Bitte erneut versuchen.', 'error', 3200);
+          console.error('Network error', err);
+        }
+      });
+    }
+
+    // Wire both forms
+    wireForm('valuationForm', 'Neue Bewertung – Gallen Immobilien');
+    wireForm('contactForm', 'Kontaktanfrage – Gallen Immobilien');
+  </script>
+</body>
+</html>

@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="de-CH">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hasler Immobilien – Immobilie verkaufen in Bern</title>
+  <meta name="description" content="Hasler Immobilien in Bern: Sichere, transparente Immobilienbewertungen & Verkauf. Persönliche Beratung und maximale Reichweite – jetzt kostenlose Einschätzung anfordern." />
+  <meta property="og:title" content="Hasler Immobilien – Immobilie verkaufen in Bern" />
+  <meta property="og:description" content="Kostenlose Immobilienbewertung & persönliche Beratung in Bern. Wir verkaufen Ihr Haus/Ihre Wohnung sicher und zum besten Preis." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="de_CH" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'ui-sans-serif', 'Arial'],
+            serif: ['Playfair Display', 'ui-serif', 'Georgia']
+          },
+          colors: {
+            brand: {
+              50:  '#f0f8f9',
+              100: '#d9eef2',
+              200: '#b3dbe3',
+              300: '#85c2cf',
+              400: '#4da3b6',     /* Accent */
+              500: '#177f95',     /* Brand */
+              600: '#0f6679',
+              700: '#0e5261',
+              800: '#0f434f',
+              900: '#0f3741'
+            },
+            ink: {
+              900: '#0f172a',
+              700: '#334155',
+              500: '#475569'
+            }
+          },
+          boxShadow: {
+            soft: '0 10px 30px rgba(2,12,27,.08)'
+          },
+          borderRadius: {
+            xl2: '1rem'
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Smooth scroll and focus ring */
+    html { scroll-behavior: smooth; }
+    .focus-ring:focus-visible { outline: 3px solid rgba(23,127,149,.35); outline-offset: 3px; border-radius: .75rem; }
+  </style>
+</head>
+<body class="text-ink-900 bg-white font-sans">
+  <!-- Skip link -->
+  <a href="#main" class="sr-only focus:not-sr-only focus-ring fixed left-3 top-3 z-[100] bg-white text-ink-900 px-3 py-2 rounded-lg shadow-soft">Zum Inhalt springen</a>
+
+  <!-- Header / Nav -->
+  <header class="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-slate-100">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="flex h-16 items-center justify-between">
+        <a href="#top" class="flex items-center gap-3 focus-ring" aria-label="Hasler Immobilien – Startseite">
+          <img src="hasler-logo.png" alt="Hasler Immobilien Logo" class="h-9 w-9 rounded-lg object-contain" />
+          <div class="leading-tight">
+            <span class="block font-serif text-xl sm:text-2xl">Hasler Immobilien</span>
+            
+          </div>
+        </a>
+
+        <nav class="hidden md:flex items-center gap-8" aria-label="Hauptnavigation">
+          <a href="#leistungen" class="text-sm text-ink-700 hover:text-ink-900 focus-ring">Leistungen</a>
+          <a href="#bewertung" class="text-sm text-ink-700 hover:text-ink-900 focus-ring">Bewertung</a>
+          <a href="#angebote" class="text-sm text-ink-700 hover:text-ink-900 focus-ring">Angebote</a>
+          <a href="#prozess" class="text-sm text-ink-700 hover:text-ink-900 focus-ring">Prozess</a>
+          <a href="#kontakt" class="text-sm text-ink-700 hover:text-ink-900 focus-ring">Kontakt</a>
+        </nav>
+
+        <div class="hidden md:flex items-center gap-3">
+          <!-- <a href="tel:+41310000000" class="inline-flex items-center gap-2 rounded-xl border border-brand-200 px-3 py-2 text-sm font-medium text-brand-700 hover:bg-brand-50 focus-ring">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.25 6.75c0 8.284 6.716 15 15 15h1.5a2.25 2.25 0 0 0 2.25-2.25v-1.052a1.125 1.125 0 0 0-.852-1.09l-4.423-1.106a1.125 1.125 0 0 0-1.173.417l-.97 1.293a.75.75 0 0 1-1.21.038A11.25 11.25 0 0 1 6.7 9.928a.75.75 0 0 1 .038-1.21l1.293-.97a1.125 1.125 0 0 0 .417-1.173L7.342 2.15A1.125 1.125 0 0 0 6.25 1.3H5.25A2.25 2.25 0 0 0 3 3.55v1.2z"/></svg>
+            Anrufen
+          </a> -->
+          <a href="#bewertung" class="inline-flex items-center gap-2 rounded-xl bg-brand-600 px-4 py-2 text-sm font-semibold text-white hover:bg-brand-700 focus-ring shadow-soft">
+            Kostenlose Bewertung
+          </a>
+        </div>
+
+        <!-- Mobile menu button -->
+        <button id="menuBtn" class="md:hidden inline-flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 hover:bg-slate-50 focus-ring" aria-expanded="false" aria-controls="mobileNav" aria-label="Navigation öffnen">
+          <svg id="menuIcon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-ink-900" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.75 6.75h16.5M3.75 12h16.5M3.75 17.25h16.5" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile nav -->
+    <nav id="mobileNav" class="md:hidden hidden border-t border-slate-100" aria-label="Mobile Navigation">
+      <div class="mx-auto max-w-7xl px-4 py-3 flex flex-col gap-2">
+        <a href="#leistungen" class="py-2 text-ink-700 hover:text-ink-900">Leistungen</a>
+        <a href="#bewertung" class="py-2 text-ink-700 hover:text-ink-900">Bewertung</a>
+        <a href="#angebote" class="py-2 text-ink-700 hover:text-ink-900">Angebote</a>
+        <a href="#prozess" class="py-2 text-ink-700 hover:text-ink-900">Prozess</a>
+        <a href="#kontakt" class="py-2 text-ink-700 hover:text-ink-900">Kontakt</a>
+        <a href="tel:+41310000000" class="mt-2 inline-flex items-center justify-center gap-2 rounded-xl border border-brand-200 px-4 py-2 text-sm font-medium text-brand-700 hover:bg-brand-50">Anrufen</a>
+        <a href="#bewertung" class="inline-flex items-center justify-center gap-2 rounded-xl bg-brand-600 px-4 py-2 text-sm font-semibold text-white hover:bg-brand-700">Kostenlose Bewertung</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <!-- Hero -->
+    <section id="top" class="relative">
+      <div class="relative">
+        <div
+          class="h-[72vh] min-h-[520px] w-full bg-center bg-cover"
+          style="background-image: url('https://wallpapers.com/images/high/real-estate-modern-white-house-dcxpp5xsw4e7wqgc.webp');"
+          role="img" aria-label="Helle Wohnung mit moderner Einrichtung in Bern"
+        >
+          <div class="h-full w-full bg-gradient-to-t from-white via-white/70 to-white/20"></div>
+        </div>
+
+        <div class="absolute inset-0">
+          <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-full">
+            <div class="flex h-full flex-col justify-center max-w-2xl">
+              <p class="text-sm font-medium text-brand-700">Ihr Immobilienmakler in Bern</p>
+              <h1 class="mt-2 font-serif text-4xl sm:text-5xl lg:text-6xl leading-tight">
+                Immobilie verkaufen – sicher, transparent, zum besten Preis.
+              </h1>
+              <p class="mt-4 text-ink-700 max-w-xl">
+                Wir bewerten, vermarkten und verkaufen Ihre Immobilie mit Sorgfalt
+                und Reichweite. Persönlich betreut – vom ersten Gespräch bis zum Notar.
+              </p>
+              <div class="mt-6 flex flex-wrap items-center gap-3">
+                <a href="#bewertung" class="inline-flex items-center gap-2 rounded-xl bg-brand-600 px-5 py-3 text-white font-semibold hover:bg-brand-700 focus-ring shadow-soft">
+                  Kostenlose Bewertung
+                </a>
+                <a href="tel:+41310000000" class="inline-flex items-center gap-2 rounded-xl border border-slate-300 px-5 py-3 text-ink-900 font-medium hover:bg-white/70 focus-ring">
+                  ☎︎ +41 31 000 00 00
+                </a>
+              </div>
+              <div class="mt-6 flex items-center gap-4 text-sm text-ink-700">
+                <span class="inline-flex items-center gap-2"><span class="h-2 w-2 rounded-full bg-emerald-500"></span> Persönliche Beratung</span>
+                <span class="inline-flex items-center gap-2"><span class="h-2 w-2 rounded-full bg-emerald-500"></span> Faire Provision</span>
+                <span class="inline-flex items-center gap-2"><span class="h-2 w-2 rounded-full bg-emerald-500"></span> Region Bern</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Value Props -->
+    <section class="py-16 sm:py-20">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div class="rounded-2xl border border-slate-200 p-6 shadow-soft">
+            <h3 class="font-semibold">Transparente Bewertung</h3>
+            <p class="mt-2 text-sm text-ink-700">Fundierte Marktanalyse, klare Argumente und realistische Preise.</p>
+          </div>
+          <div class="rounded-2xl border border-slate-200 p-6 shadow-soft">
+            <h3 class="font-semibold">Professionelles Marketing</h3>
+            <p class="mt-2 text-sm text-ink-700">Hochwertige Fotos, Exposé & Reichweite auf führenden Portalen.</p>
+          </div>
+          <div class="rounded-2xl border border-slate-200 p-6 shadow-soft">
+            <h3 class="font-semibold">Geprüfte Käufer</h3>
+            <p class="mt-2 text-sm text-ink-700">Bonitätscheck & sichere Verhandlungen – unkompliziert zum Abschluss.</p>
+          </div>
+          <div class="rounded-2xl border border-slate-200 p-6 shadow-soft">
+            <h3 class="font-semibold">Rundum-Betreuung</h3>
+            <p class="mt-2 text-sm text-ink-700">Wir begleiten Sie persönlich – vom Erstgespräch bis zum Notartermin.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Leistungen -->
+    <section id="leistungen" class="py-16 sm:py-20 bg-slate-50">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="max-w-2xl">
+          <p class="text-sm text-brand-700 font-medium">Leistungen</p>
+          <h2 class="mt-1 font-serif text-3xl sm:text-4xl">Was wir für Sie übernehmen</h2>
+          <p class="mt-3 text-ink-700">Alles aus einer Hand – Sie lehnen sich zurück.</p>
+        </div>
+
+        <div class="mt-10 grid gap-6 md:grid-cols-2">
+          <div class="rounded-2xl bg-white border border-slate-200 p-6 shadow-soft">
+            <h3 class="font-semibold">Immobilienbewertung</h3>
+            <p class="mt-2 text-sm text-ink-700">Vergleichswerte, Lageanalyse & Objektzustand – nachvollziehbar dokumentiert.</p>
+          </div>
+          <div class="rounded-2xl bg-white border border-slate-200 p-6 shadow-soft">
+            <h3 class="font-semibold">Vermarktung & Exposé</h3>
+            <p class="mt-2 text-sm text-ink-700">Professionelle Medien, Portale & Besichtigungen – zielgerichtet und diskret.</p>
+          </div>
+          <div class="rounded-2xl bg-white border border-slate-200 p-6 shadow-soft">
+            <h3 class="font-semibold">Verhandeln & Abschluss</h3>
+            <p class="mt-2 text-sm text-ink-700">Sichere Preisverhandlungen, Reservierung, Kaufvertrag & Notar.</p>
+          </div>
+          <div class="rounded-2xl bg-white border border-slate-200 p-6 shadow-soft">
+            <h3 class="font-semibold">After-Sale Service</h3>
+            <p class="mt-2 text-sm text-ink-700">Übergabe & Dokumentation – auch nach dem Verkauf für Sie da.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Angebote / Listings (placeholders) -->
+    <section id="angebote" class="py-16 sm:py-20">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="flex items-end justify-between gap-6">
+          <div>
+            <p class="text-sm text-brand-700 font-medium">Angebote</p>
+            <h2 class="mt-1 font-serif text-3xl sm:text-4xl">Aktuelle Objekte</h2>
+          </div>
+          <a href="#kontakt" class="hidden sm:inline-flex items-center gap-2 rounded-xl border border-slate-300 px-4 py-2 text-sm font-medium hover:bg-slate-50">Exposé anfordern</a>
+        </div>
+
+        <div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <!-- Card -->
+          <article class="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-soft">
+            <div class="aspect-[4/3] bg-slate-100">
+              <img class="h-full w-full object-cover" src="https://wallpapercave.com/wp/wp7352273.jpg" alt="3.5-Zimmer Wohnung in Bern" />
+            </div>
+            <div class="p-5">
+              <h3 class="font-semibold group-hover:underline">3.5-Zi. Wohnung | Bern Länggasse</h3>
+              <p class="mt-1 text-sm text-ink-700">86 m² • Balkon • Nähe Uni</p>
+              <div class="mt-3 flex items-center justify-between">
+                <span class="font-semibold">CHF 860’000</span>
+                <a href="#kontakt" class="text-brand-700 hover:text-brand-800 text-sm">Details</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-soft">
+            <div class="aspect-[4/3] bg-slate-100">
+              <img class="h-full w-full object-cover" src="https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?q=80&w=1200&auto=format&fit=crop" alt="Einfamilienhaus in Ostermundigen" />
+            </div>
+            <div class="p-5">
+              <h3 class="font-semibold group-hover:underline">EFH | Ostermundigen</h3>
+              <p class="mt-1 text-sm text-ink-700">5.5 Zimmer • Garten • Garage</p>
+              <div class="mt-3 flex items-center justify-between">
+                <span class="font-semibold">auf Anfrage</span>
+                <a href="#kontakt" class="text-brand-700 hover:text-brand-800 text-sm">Details</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-soft">
+            <div class="aspect-[4/3] bg-slate-100">
+              <img class="h-full w-full object-cover" src="https://images.unsplash.com/photo-1494526585095-c41746248156?q=80&w=1200&auto=format&fit=crop" alt="Reiheneckhaus in Köniz" />
+            </div>
+            <div class="p-5">
+              <h3 class="font-semibold group-hover:underline">Reiheneckhaus | Köniz</h3>
+              <p class="mt-1 text-sm text-ink-700">4.5 Zimmer • ruhige Lage • Terrasse</p>
+              <div class="mt-3 flex items-center justify-between">
+                <span class="font-semibold">CHF 1.12 Mio.</span>
+                <a href="#kontakt" class="text-brand-700 hover:text-brand-800 text-sm">Details</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Prozess -->
+    <section id="prozess" class="py-16 sm:py-20 bg-slate-50">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="max-w-2xl">
+          <p class="text-sm text-brand-700 font-medium">Ablauf</p>
+          <h2 class="mt-1 font-serif text-3xl sm:text-4xl">Einfacher Prozess in 4 Schritten</h2>
+        </div>
+
+        <ol class="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          <li class="rounded-2xl bg-white border border-slate-200 p-6 shadow-soft">
+            <span class="text-xs font-medium text-brand-700">01</span>
+            <h3 class="mt-1 font-semibold">Erstgespräch</h3>
+            <p class="mt-2 text-sm text-ink-700">Ziele, Timing & Objekt kennenlernen.</p>
+          </li>
+          <li class="rounded-2xl bg-white border border-slate-200 p-6 shadow-soft">
+            <span class="text-xs font-medium text-brand-700">02</span>
+            <h3 class="mt-1 font-semibold">Bewertung</h3>
+            <p class="mt-2 text-sm text-ink-700">Marktwerte & Verkaufspreis definieren.</p>
+          </li>
+          <li class="rounded-2xl bg-white border border-slate-200 p-6 shadow-soft">
+            <span class="text-xs font-medium text-brand-700">03</span>
+            <h3 class="mt-1 font-semibold">Vermarktung</h3>
+            <p class="mt-2 text-sm text-ink-700">Exposé, Portale & Besichtigungen.</p>
+          </li>
+          <li class="rounded-2xl bg-white border border-slate-200 p-6 shadow-soft">
+            <span class="text-xs font-medium text-brand-700">04</span>
+            <h3 class="mt-1 font-semibold">Abschluss</h3>
+            <p class="mt-2 text-sm text-ink-700">Verhandlung, Vertrag & Notar.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-16 sm:py-20">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="max-w-2xl">
+          <p class="text-sm text-brand-700 font-medium">Kundenstimmen</p>
+          <h2 class="mt-1 font-serif text-3xl sm:text-4xl">Was Eigentümer sagen</h2>
+        </div>
+        <div class="mt-8 grid gap-6 md:grid-cols-2">
+          <blockquote class="rounded-2xl border border-slate-200 p-6 shadow-soft bg-white">
+            <p class="text-ink-700">„Sehr transparent & zuverlässig. Wir fühlten uns jederzeit gut beraten.“</p>
+            <footer class="mt-3 text-sm text-ink-500">– Familie M., Bern</footer>
+          </blockquote>
+          <blockquote class="rounded-2xl border border-slate-200 p-6 shadow-soft bg-white">
+            <p class="text-ink-700">„Top Exposé und schnelle Vermittlung zum Zielpreis. Empfehlenswert!“</p>
+            <footer class="mt-3 text-sm text-ink-500">– S. M., Ostermundigen</footer>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bewertung / Kontakt -->
+    <section id="bewertung" class="py-16 sm:py-20 bg-slate-50">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="grid gap-10 md:grid-cols-2">
+          <div>
+            <p class="text-sm text-brand-700 font-medium">Kostenlose Immobilienbewertung</p>
+            <h2 class="mt-1 font-serif text-3xl sm:text-4xl">Unverbindliche Einschätzung starten</h2>
+            <p class="mt-3 text-ink-700">Füllen Sie das Formular aus – wir melden uns innerhalb von 24 Stunden.</p>
+            <ul class="mt-6 space-y-2 text-sm text-ink-700">
+              <li>• Marktanalyse & Preisempfehlung</li>
+              <li>• Persönliche Beratung in Bern & Region</li>
+              <li>• 100% unverbindlich</li>
+            </ul>
+
+            <div class="mt-8 rounded-2xl border border-slate-200 p-5 bg-white shadow-soft">
+              <p class="text-sm font-medium">Oder direkt anrufen:</p>
+              <a href="tel:+41310000000" class="mt-2 inline-flex items-center gap-2 text-brand-700 hover:text-brand-800">+41 31 000 00 00</a>
+            </div>
+          </div>
+
+          <form id="leadForm" class="rounded-2xl bg-white border border-slate-200 p-6 shadow-soft">
+            <div class="grid sm:grid-cols-2 gap-4">
+              <div>
+                <label for="name" class="block text-sm font-medium">Name</label>
+                <input id="name" name="name" type="text" required class="mt-1 w-full rounded-xl border border-slate-300 px-3 py-2 focus:ring-2 focus:ring-brand-400" placeholder="Vor- und Nachname" />
+              </div>
+              <div>
+                <label for="email" class="block text-sm font-medium">E-Mail</label>
+                <input id="email" name="email" type="email" required class="mt-1 w-full rounded-xl border border-slate-300 px-3 py-2 focus:ring-2 focus:ring-brand-400" placeholder="name@email.ch" />
+              </div>
+              <div>
+                <label for="phone" class="block text-sm font-medium">Telefon</label>
+                <input id="phone" name="phone" type="tel" class="mt-1 w-full rounded-xl border border-slate-300 px-3 py-2 focus:ring-2 focus:ring-brand-400" placeholder="+41 ..." />
+              </div>
+              <div>
+                <label for="ort" class="block text-sm font-medium">Ort / PLZ</label>
+                <input id="ort" name="ort" type="text" class="mt-1 w-full rounded-xl border border-slate-300 px-3 py-2 focus:ring-2 focus:ring-brand-400" placeholder="Bern 3000" />
+              </div>
+              <div class="sm:col-span-2">
+                <label for="details" class="block text-sm font-medium">Objekt / Nachricht</label>
+                <textarea id="details" name="details" rows="4" class="mt-1 w-full rounded-xl border border-slate-300 px-3 py-2 focus:ring-2 focus:ring-brand-400" placeholder="Wohnung/Haus, Zimmer, Zustand ..."></textarea>
+              </div>
+            </div>
+            <div class="mt-5 flex items-start gap-3">
+              <input id="privacy" type="checkbox" required class="mt-1 h-4 w-4 rounded border-slate-300 text-brand-600 focus:ring-brand-400" />
+              <label for="privacy" class="text-sm text-ink-700">Ich stimme der Verarbeitung meiner Daten zur Kontaktaufnahme zu.</label>
+            </div>
+            <button type="submit" class="mt-5 w-full rounded-xl bg-brand-600 px-5 py-3 text-white font-semibold hover:bg-brand-700 focus-ring shadow-soft">Anfrage senden</button>
+            <p class="mt-3 text-xs text-ink-500">Hinweis: Ohne Backend wird diese Anfrage nicht versendet. Binden Sie z. B. Formspree, Netlify Forms oder ein eigenes Backend an.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Karte / Standort -->
+    <section id="kontakt" class="py-16 sm:py-20">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="grid gap-8 md:grid-cols-2">
+          <div>
+            <p class="text-sm text-brand-700 font-medium">Kontakt</p>
+            <h2 class="mt-1 font-serif text-3xl sm:text-4xl">So erreichen Sie uns</h2>
+            <div class="mt-6 space-y-2 text-ink-700">
+              <p><strong>Hasler Immobilien</strong></p>
+              <p>Bundesgasse 00, 3000 Bern</p>
+              <p><a href="tel:+41310000000" class="text-brand-700 hover:text-brand-800">+41 31 000 00 00</a></p>
+              <p><a href="mailto:hallo@hasler-immobilien.ch" class="text-brand-700 hover:text-brand-800">hallo@hasler-immobilien.ch</a></p>
+            </div>
+            <div class="mt-6 flex gap-3">
+              <a href="tel:+41310000000" class="inline-flex items-center gap-2 rounded-xl border border-slate-300 px-4 py-2 text-sm font-medium hover:bg-slate-50">Anrufen</a>
+              <a href="#bewertung" class="inline-flex items-center gap-2 rounded-xl bg-brand-600 px-4 py-2 text-sm font-semibold text-white hover:bg-brand-700">Bewertung anfragen</a>
+            </div>
+          </div>
+
+          <div class="overflow-hidden rounded-2xl border border-slate-200 shadow-soft">
+            <!-- Replace with your embedded map -->
+            <iframe title="Hasler Immobilien Bern – Karte" class="h-[360px] w-full"
+              src="https://maps.google.com/maps?q=Bern,%20Switzerland&t=m&z=12&output=embed&iwloc=near"
+              loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-200">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+        <p class="text-sm text-ink-500">© <span id="year"></span> Hasler Immobilien, Bern. Alle Rechte vorbehalten.</p>
+        <div class="flex gap-4 text-sm">
+          <a href="#top" class="text-ink-700 hover:text-ink-900">Start</a>
+          <a href="#leistungen" class="text-ink-700 hover:text-ink-900">Leistungen</a>
+          <a href="#bewertung" class="text-ink-700 hover:text-ink-900">Bewertung</a>
+          <a href="#" class="text-ink-700 hover:text-ink-900">Datenschutz</a>
+          <a href="#" class="text-ink-700 hover:text-ink-900">Impressum</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast -->
+  <div id="toast" class="pointer-events-none fixed inset-x-0 top-3 z-[60] hidden">
+    <div class="mx-auto w-fit rounded-xl bg-emerald-600 px-4 py-3 text-white shadow-soft">Vielen Dank! Wir melden uns zeitnah.</div>
+  </div>
+
+  <!-- Minimal JS: mobile menu, year, fake submit with toast -->
+  <script>
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Mobile nav toggle
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileNav = document.getElementById('mobileNav');
+    menuBtn?.addEventListener('click', () => {
+      const open = mobileNav.classList.toggle('hidden') === false;
+      menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+
+    // Lead form: front-end only demo (shows toast). Replace with your backend or Formspree action.
+    const form = document.getElementById('leadForm');
+    const toast = document.getElementById('toast');
+    form?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      // Basic validation already handled by required attrs; show toast
+      toast.classList.remove('hidden');
+      setTimeout(() => toast.classList.add('hidden'), 2800);
+      form.reset();
+      document.getElementById('privacy').checked = false;
+    });
+  </script>
+</body>
+</html>

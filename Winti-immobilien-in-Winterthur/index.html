@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Winti Immobilien – Immobilie verkaufen in Winterthur</title>
+    <meta
+      name="description"
+      content="Immobilie verkaufen in Winterthur? Winti Immobilien begleitet Sie von der Bewertung bis zum Verkauf – sicher, transparent, zum besten Preis."
+    />
+    <meta
+      property="og:title"
+      content="Winti Immobilien – Immobilie verkaufen in Winterthur"
+    />
+    <meta
+      property="og:description"
+      content="Kostenlose Immobilienbewertung & persönliche Beratung. Wir verkaufen Ihr Haus/Ihre Wohnung sicher und zum besten Preis."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="de_CH" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'%3E%3Cpath fill='%23005566' d='M6 24L24 9l18 15v15H6z'/%3E%3Cpath fill='%23ffffff' d='M18 39V27h12v12z'/%3E%3C/svg%3E"
+    />
+
+    <!-- Tailwind (CDN for static HTML). Remove if you have a build step. -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: "#005566",
+              brand2: "#00A3B4",
+              dark: "#0f172a",
+            },
+            boxShadow: {
+              soft: "0 10px 30px rgba(2,12,27,.08)",
+            },
+            borderRadius: {
+              xl2: "18px",
+            },
+            fontFamily: {
+              munday: ['"Playfair Display"', "serif"],
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      /* Only for hiding elements before JS applies classes (no styling). */
+      [data-js-hidden] {
+        display: none;
+      }
+    </style>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: { munday: ['"Playfair Display"', "serif"] },
+          },
+        },
+      };
+    </script>
+    <style>
+      :root {
+        --brand: #005566; /* same as your Tailwind brand */
+        --brand2: #00a3b4; /* same as your Tailwind brand2 */
+      }
+      /* base chip */
+      .seg {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.5rem 0.75rem;
+        border-radius: 9999px;
+        border: 1px solid rgb(226 232 240); /* slate-200 */
+        background: #fff;
+        color: #0f172a;
+        font-weight: 600;
+        transition: background 0.2s, box-shadow 0.2s, color 0.2s,
+          border-color 0.2s;
+      }
+      .seg:hover {
+        background: #f8fafc;
+      } /* slate-50 */
+
+      /* active chip */
+      .seg.is-active {
+        border-color: transparent;
+        color: #fff;
+        background: linear-gradient(135deg, var(--brand2), var(--brand));
+        box-shadow: 0 8px 22px rgba(0, 85, 102, 0.18);
+      }
+    </style>
+
+    <style>
+      :root {
+        --brand: #005566;
+        --brand2: #00a3b4;
+      }
+
+      .btn-primary {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        width: 100%;
+        padding: 0.75rem 1.25rem;
+        border-radius: 9999px;
+        font-weight: 700;
+        color: #fff;
+        background: linear-gradient(135deg, var(--brand2), var(--brand));
+        box-shadow: 0 10px 30px rgba(0, 85, 102, 0.18);
+        border: 1px solid transparent;
+        transition: filter 0.2s, transform 0.05s, box-shadow 0.2s;
+      }
+      .btn-primary:hover {
+        filter: brightness(1.04);
+        box-shadow: 0 12px 34px rgba(0, 85, 102, 0.22);
+      }
+      .btn-primary:active {
+        transform: translateY(1px);
+      }
+      .btn-primary:focus {
+        outline: none;
+        box-shadow: 0 0 0 4px rgba(0, 163, 180, 0.25),
+          0 10px 30px rgba(0, 85, 102, 0.18);
+      }
+      .btn-primary[disabled] {
+        opacity: 0.7;
+        cursor: not-allowed;
+        filter: saturate(0.75);
+      }
+
+      /* optional subtle outline style for secondary actions */
+      .btn-outline {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        width: 100%;
+        padding: 0.75rem 1.25rem;
+        border-radius: 9999px;
+        font-weight: 700;
+        color: #0f172a;
+        background: #fff;
+        border: 1px solid #e2e8f0;
+        transition: background 0.2s, box-shadow 0.2s;
+      }
+      .btn-outline:hover {
+        background: #f8fafc;
+        box-shadow: 0 4px 16px rgba(15, 23, 42, 0.06);
+      }
+      /* spinner used while submitting */
+      .btn-spinner {
+        width: 1rem;
+        height: 1rem;
+        border-radius: 9999px;
+        border: 2px solid rgba(255, 255, 255, 0.5);
+        border-top-color: #fff;
+        animation: spin 0.8s linear infinite;
+      }
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body class="antialiased text-slate-900 bg-slate-50">
+    <!-- Header -->
+    <header
+      class="sticky top-0 z-50 border-b border-slate-200 bg-white/80 backdrop-blur-md backdrop-saturate-150"
+    >
+      <div
+        class="mx-auto w-[92%] max-w-[1100px] flex items-center justify-between py-3"
+      >
+        <!-- Brand -->
+        <a
+          href="#top"
+          class="flex items-center gap-3"
+          aria-label="Winti Immobilien – Startseite"
+        >
+          <img
+            src="Winti%20Logo.png"
+            alt="Winti Immobilien Logo"
+            class="h-30 w-auto sm:h-30 md:h-30 lg:h-24 shrink-0 rounded-lg object-contain"
+            decoding="async"
+            loading="eager"
+          />
+        </a>
+
+        <!-- Desktop nav -->
+        <nav
+          class="hidden sm:flex items-center gap-6 md:gap-8"
+          aria-label="Hauptnavigation"
+        >
+          <a
+            href="#leistungen"
+            class="inline-flex items-center rounded-full px-3 py-2 text-[15px] md:text-[16px] font-semibold text-slate-700 hover:text-slate-900 hover:bg-slate-100 focus:outline-none focus:ring-4 focus:ring-brand/25 transition"
+          >
+            Leistungen
+          </a>
+          <a
+            href="#bewertung"
+            class="inline-flex items-center rounded-full px-3 py-2 text-[15px] md:text-[16px] font-semibold text-slate-700 hover:text-slate-900 hover:bg-slate-100 focus:outline-none focus:ring-4 focus:ring-brand/25 transition"
+          >
+            Bewertung
+          </a>
+          <a
+            href="#kontakt"
+            class="inline-flex items-center rounded-full px-3 py-2 text-[15px] md:text-[16px] font-semibold text-slate-700 hover:text-slate-900 hover:bg-slate-100 focus:outline-none focus:ring-4 focus:ring-brand/25 transition"
+          >
+            Kontakt
+          </a>
+        </nav>
+
+        <!-- Call to action (desktop) -->
+        <!-- <a href="tel:+41440000000" class="hidden md:inline-flex items-center rounded-full bg-brand px-4 py-2 font-semibold text-white transition hover:brightness-105" aria-label="Jetzt anrufen">Anrufen</a> -->
+
+        <!-- Mobile menu button -->
+        <button
+          id="menuBtn"
+          class="sm:hidden inline-flex items-center justify-center h-10 w-10 rounded-lg border border-slate-200 text-slate-700"
+          aria-expanded="false"
+          aria-controls="mobileMenu"
+          aria-label="Menü öffnen"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Mobile menu -->
+      <nav
+        id="mobileMenu"
+        class="sm:hidden"
+        data-js-hidden
+        aria-label="Mobile Navigation"
+      >
+        <div class="mx-auto w-[92%] max-w-[1100px] grid gap-2 pb-3">
+          <a href="#leistungen" class="px-3 py-2 rounded-lg hover:bg-slate-100"
+            >Leistungen</a
+          >
+          <a href="#bewertung" class="px-3 py-2 rounded-lg hover:bg-slate-100"
+            >Bewertung</a
+          >
+          <a href="#kontakt" class="px-3 py-2 rounded-lg hover:bg-slate-100"
+            >Kontakt</a
+          >
+          <a
+            href="tel:+41440000000"
+            class="inline-flex items-center justify-center rounded-full bg-brand px-4 py-2 font-semibold text-white"
+            >Anrufen</a
+          >
+        </div>
+      </nav>
+    </header>
+
+    <!-- Hero -->
+    <section id="top" class="relative isolate">
+      <!-- Background image + soft overlays -->
+      <div class="absolute inset-0 -z-10">
+        <div
+          class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1501183638710-841dd1904471?q=80&w=1800&auto=format&fit=crop')] bg-cover bg-center"
+        ></div>
+        <div class="absolute inset-0 bg-white/10"></div>
+        <div
+          class="absolute inset-0 bg-gradient-to-b from-white/70 via-white/30 to-slate-50"
+        ></div>
+      </div>
+
+      <div
+        class="mx-auto w-[92%] max-w-[1100px] grid md:grid-cols-2 gap-8 items-center min-h-[80vh] py-12 md:py-16"
+      >
+        <div>
+          <p class="text-sm font-bold uppercase tracking-[0.12em] text-brand">
+            Winterthur & Region
+          </p>
+          <h1 class="font-munday text-4xl md:text-5xl leading-tight">
+            Immobilie verkaufen – sicher, transparent, zum besten Preis.
+          </h1>
+
+          <p class="mt-3 text-slate-600 max-w-[55ch]">
+            Wir begleiten Sie persönlich von der Bewertung über die Vermarktung
+            bis zum erfolgreichen Abschluss. Ohne Risiko, mit klarer
+            Kommunikation.
+          </p>
+          <div class="mt-5 flex flex-wrap gap-3">
+            <a href="#bewertung" class="btn-primary md:w-auto"
+              >Kostenlose Bewertung</a
+            >
+            <a href="#kontakt" class="btn-outline md:w-auto"
+              >Beratung anfragen</a
+            >
+          </div>
+
+          <div class="mt-4 grid grid-cols-2 sm:grid-cols-3 gap-2">
+            <div
+              class="text-center rounded-full border border-slate-200 bg-white px-3 py-2 text-sm"
+            >
+              +300 Bewertungen
+            </div>
+            <div
+              class="text-center rounded-full border border-slate-200 bg-white px-3 py-2 text-sm"
+            >
+              Lokale Marktkenntnis
+            </div>
+            <div
+              class="text-center rounded-full border border-slate-200 bg-white px-3 py-2 text-sm"
+            >
+              Provisionsmodell fair
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="rounded-xl2 border border-slate-200 bg-white/90 p-5 shadow-soft"
+        >
+          <p class="font-semibold">Warum mit Winti verkaufen?</p>
+          <ul class="mt-3 list-disc pl-5 space-y-1 text-slate-600">
+            <li>Fundierte Marktanalyse & realistische Preiseinschätzung</li>
+            <li>Hochwertiges Exposé, Profifotos & Zielgruppen-Marketing</li>
+            <li>Besichtigungsmanagement & rechtssichere Abwicklung</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Leistungen -->
+    <section id="leistungen" class="py-14">
+      <div class="mx-auto w-[92%] max-w-[1100px]">
+        <h2 class="text-3xl font-bold">Unsere Leistungen</h2>
+        <p class="mt-1 text-slate-600">
+          Alles aus einer Hand – für einen stressfreien Verkauf.
+        </p>
+
+        <div class="mt-6 grid gap-5 sm:grid-cols-2 md:grid-cols-3">
+          <div
+            class="rounded-xl2 border border-slate-200 bg-white p-5 shadow-soft"
+          >
+            <div
+              class="mb-3 grid h-10 w-10 place-items-center rounded-xl bg-gradient-to-br from-brand2 to-brand text-white font-extrabold"
+            >
+              1
+            </div>
+            <h3 class="font-semibold">Bewertung</h3>
+            <p class="mt-1 text-slate-600">
+              Objekt- & Standortanalyse, Vergleichswerte, Preisstrategie –
+              kostenlos & unverbindlich.
+            </p>
+          </div>
+          <div
+            class="rounded-xl2 border border-slate-200 bg-white p-5 shadow-soft"
+          >
+            <div
+              class="mb-3 grid h-10 w-10 place-items-center rounded-xl bg-gradient-to-br from-brand2 to-brand text-white font-extrabold"
+            >
+              2
+            </div>
+            <h3 class="font-semibold">Vermarktung</h3>
+            <p class="mt-1 text-slate-600">
+              Exposé, Profifotografie, Portale, Social Ads und aktive
+              Käuferdatenbank.
+            </p>
+          </div>
+          <div
+            class="rounded-xl2 border border-slate-200 bg-white p-5 shadow-soft"
+          >
+            <div
+              class="mb-3 grid h-10 w-10 place-items-center rounded-xl bg-gradient-to-br from-brand2 to-brand text-white font-extrabold"
+            >
+              3
+            </div>
+            <h3 class="font-semibold">Abwicklung</h3>
+            <p class="mt-1 text-slate-600">
+              Besichtigungen, Verhandlungen, Notartermin, Übergabe – wir kümmern
+              uns.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bewertung (Lead) – simple & elegant -->
+    <section id="bewertung" class="py-14 scroll-mt-24">
+      <div class="mx-auto w-[92%] max-w-[1100px]">
+        <!-- Heading + badges -->
+        <div
+          class="mb-6 flex flex-col gap-3 md:flex-row md:items-end md:justify-between"
+        >
+          <div>
+            <h2 class="text-3xl font-bold leading-tight">
+              Kostenlose Immobilienbewertung
+            </h2>
+            <p class="mt-1 text-slate-600">
+              Teilen Sie uns kurz die Eckdaten mit – wir melden uns innerhalb
+              von <strong>24&nbsp;Stunden</strong>.
+            </p>
+          </div>
+          <ul class="flex flex-wrap items-center gap-2 text-sm text-slate-600">
+            <li
+              class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1.5"
+            >
+              <span class="h-1.5 w-1.5 rounded-full bg-brand2"></span> Lokale
+              Marktkenntnis Winterthur
+            </li>
+            <li
+              class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1.5"
+            >
+              <span class="h-1.5 w-1.5 rounded-full bg-brand2"></span>
+              DSGVO-konform
+            </li>
+            <li
+              class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1.5"
+            >
+              <span class="h-1.5 w-1.5 rounded-full bg-brand2"></span>
+              Unverbindlich & kostenlos
+            </li>
+          </ul>
+        </div>
+
+        <div class="grid gap-6 md:grid-cols-[1fr_0.9fr]">
+          <!-- LEFT: FORM -->
+          <form
+            id="valuationForm"
+            class="rounded-xl2 border border-slate-200 bg-white p-6 shadow-soft"
+            aria-label="Bewertungsformular"
+          >
+            <!-- Step tags -->
+            <div
+              class="mb-4 flex flex-wrap gap-2 text-xs font-bold uppercase tracking-wide"
+            >
+              <span
+                class="rounded-lg border border-slate-200 bg-brand/5 px-2.5 py-1 text-brand"
+                >1/2 – Kontaktdaten</span
+              >
+            </div>
+
+            <!-- Contact row -->
+            <div class="grid gap-3 sm:grid-cols-2">
+              <label class="grid gap-1">
+                <span class="text-sm font-medium">Ihr Name</span>
+                <input
+                  name="name"
+                  autocomplete="name"
+                  required
+                  class="w-full rounded-xl border border-slate-300 bg-white px-3 py-2 outline-none focus:border-brand focus:ring-4 focus:ring-brand/30"
+                />
+              </label>
+              <label class="grid gap-1">
+                <span class="text-sm font-medium">E-Mail</span>
+                <input
+                  type="email"
+                  name="email"
+                  autocomplete="email"
+                  required
+                  class="w-full rounded-xl border border-slate-300 bg-white px-3 py-2 outline-none focus:border-brand focus:ring-4 focus:ring-brand/30"
+                />
+              </label>
+            </div>
+
+            <div class="mt-3 grid gap-3 sm:grid-cols-2">
+              <label class="grid gap-1">
+                <span class="text-sm font-medium">Telefon (optional)</span>
+                <input
+                  name="phone"
+                  autocomplete="tel"
+                  class="w-full rounded-xl border border-slate-300 bg-white px-3 py-2 outline-none focus:border-brand focus:ring-4 focus:ring-brand/30"
+                />
+              </label>
+              <label class="grid gap-1">
+                <span class="text-sm font-medium">Ort/Quartier</span>
+                <input
+                  name="city"
+                  placeholder="z. B. Winterthur, Seen"
+                  class="w-full rounded-xl border border-slate-300 bg-white px-3 py-2 outline-none focus:border-brand focus:ring-4 focus:ring-brand/30"
+                />
+              </label>
+            </div>
+
+            <!-- Step tag -->
+            <div class="mt-6 mb-2">
+              <span
+                class="rounded-lg border border-slate-200 bg-brand/5 px-2.5 py-1 text-xs font-bold uppercase tracking-wide text-brand"
+              >
+                2/2 – Objekt & Ziel
+              </span>
+            </div>
+
+            <!-- Chips -->
+            <div class="grid gap-4">
+              <!-- Immobilientyp -->
+              <div class="grid gap-1.5">
+                <span class="text-sm font-semibold">Immobilientyp</span>
+                <div
+                  class="flex flex-wrap gap-2"
+                  role="radiogroup"
+                  data-seg="immobilientyp"
+                >
+                  <button
+                    type="button"
+                    data-value="Wohnung"
+                    class="seg is-active"
+                  >
+                    Wohnung
+                  </button>
+                  <button
+                    type="button"
+                    data-value="Einfamilienhaus"
+                    class="seg"
+                  >
+                    Einfamilienhaus
+                  </button>
+                  <button
+                    type="button"
+                    data-value="Mehrfamilienhaus"
+                    class="seg"
+                  >
+                    Mehrfamilienhaus
+                  </button>
+                  <button
+                    type="button"
+                    data-value="Land/Grundstück"
+                    class="seg"
+                  >
+                    Land/Grundstück
+                  </button>
+                </div>
+                <input type="hidden" name="immobilientyp" value="Wohnung" />
+              </div>
+
+              <!-- Zeitplan -->
+              <div class="grid gap-1.5">
+                <span class="text-sm font-semibold">Zeitplan</span>
+                <div
+                  class="flex flex-wrap gap-2"
+                  role="radiogroup"
+                  data-seg="zeitplan"
+                >
+                  <button
+                    type="button"
+                    data-value="Sofort"
+                    class="seg is-active"
+                  >
+                    Sofort
+                  </button>
+                  <button type="button" data-value="3–6 Monate" class="seg">
+                    3–6 Monate
+                  </button>
+                  <button type="button" data-value="> 6 Monate" class="seg">
+                    &gt; 6 Monate
+                  </button>
+                  <button type="button" data-value="Unklar" class="seg">
+                    Unklar
+                  </button>
+                </div>
+                <input type="hidden" name="zeitplan" value="Sofort" />
+              </div>
+
+              <!-- Kontaktart -->
+              <div class="grid gap-1.5">
+                <span class="text-sm font-semibold">Kontakt bevorzugt</span>
+                <div
+                  class="flex flex-wrap gap-2"
+                  role="radiogroup"
+                  data-seg="kontaktart"
+                >
+                  <button
+                    type="button"
+                    data-value="E-Mail"
+                    class="seg is-active"
+                  >
+                    E-Mail
+                  </button>
+                  <button type="button" data-value="Telefon" class="seg">
+                    Telefon
+                  </button>
+                </div>
+                <input type="hidden" name="kontaktart" value="E-Mail" />
+              </div>
+            </div>
+
+            <!-- Details -->
+            <label class="mt-4 grid gap-1">
+              <span class="text-sm font-medium">Objekt-Details</span>
+              <textarea
+                name="details"
+                placeholder="z. B. 4.5 Zimmer, Baujahr, Zustand, Besonderheiten …"
+                class="min-h-[120px] w-full resize-y rounded-xl border border-slate-300 bg-white px-3 py-2 outline-none focus:border-brand focus:ring-4 focus:ring-brand/30"
+              ></textarea>
+            </label>
+
+            <!-- CTA -->
+            <div class="mt-5 grid gap-2">
+              <button type="submit" id="valuationSubmit" class="btn-primary">
+                Anfrage senden
+              </button>
+              <p class="text-sm text-slate-600">
+                Mit Klick stimmen Sie der Kontaktaufnahme zu. Ihre Daten werden
+                vertraulich behandelt.
+              </p>
+            </div>
+          </form>
+
+          <!-- RIGHT: Process + Social proof -->
+          <aside class="grid gap-6">
+            <!-- Process -->
+            <div
+              class="rounded-xl2 border border-slate-200 bg-white p-6 shadow-soft"
+            >
+              <h3 class="font-semibold">So läuft’s ab</h3>
+              <ol class="mt-3 space-y-3">
+                <li
+                  class="rounded-xl border border-dashed border-slate-300 p-3"
+                >
+                  <strong>Erstgespräch</strong>
+                  <p class="text-sm text-slate-600">
+                    Ziele, Zeitplan & Unterlagen klären.
+                  </p>
+                </li>
+                <li
+                  class="rounded-xl border border-dashed border-slate-300 p-3"
+                >
+                  <strong>Besichtigung</strong>
+                  <p class="text-sm text-slate-600">
+                    Objektaufnahme & Marktanalyse.
+                  </p>
+                </li>
+                <li
+                  class="rounded-xl border border-dashed border-slate-300 p-3"
+                >
+                  <strong>Vermarktung</strong>
+                  <p class="text-sm text-slate-600">
+                    Exposé, Portale, Interessentenmanagement.
+                  </p>
+                </li>
+                <li
+                  class="rounded-xl border border-dashed border-slate-300 p-3"
+                >
+                  <strong>Verkauf & Abschluss</strong>
+                  <p class="text-sm text-slate-600">
+                    Verhandlung, Notar, Übergabe.
+                  </p>
+                </li>
+              </ol>
+              <div class="mt-4 grid grid-cols-3 gap-3 text-center">
+                <div>
+                  <div class="text-xl font-extrabold">24h</div>
+                  <div class="text-sm text-slate-600">Rückmeldung</div>
+                </div>
+                <div>
+                  <div class="text-xl font-extrabold">300+</div>
+                  <div class="text-sm text-slate-600">Bewertungen</div>
+                </div>
+                <div>
+                  <div class="text-xl font-extrabold">100%</div>
+                  <div class="text-sm text-slate-600">Transparent</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Testimonials -->
+            <div
+              class="rounded-xl2 border border-slate-200 bg-white p-6 shadow-soft"
+            >
+              <h3 class="font-semibold">Kundenstimmen</h3>
+              <div class="mt-3 space-y-3">
+                <div class="grid grid-cols-[auto_1fr] items-start gap-3">
+                  <div
+                    class="h-10 w-10 rounded-full bg-gradient-to-br from-slate-300 to-slate-400"
+                  ></div>
+                  <div>
+                    <p><strong>Familie S., Winterthur</strong></p>
+                    <p class="text-slate-600">
+                      „Professionell, schnell und sehr transparent. Klare
+                      Empfehlung!“
+                    </p>
+                  </div>
+                </div>
+                <hr class="border-slate-200" />
+                <div class="grid grid-cols-[auto_1fr] items-start gap-3">
+                  <div
+                    class="h-10 w-10 rounded-full bg-gradient-to-br from-slate-300 to-slate-400"
+                  ></div>
+                  <div>
+                    <p><strong>Herr B., Seen</strong></p>
+                    <p class="text-slate-600">
+                      „Preis über Erwartung erzielt – top Vermarktung.“
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <details class="mt-4">
+                <summary class="cursor-pointer font-semibold">
+                  Was kostet die Bewertung?
+                </summary>
+                <p class="mt-2 text-sm text-slate-600">
+                  Die Bewertung ist kostenlos und unverbindlich.
+                </p>
+              </details>
+              <details class="mt-2">
+                <summary class="cursor-pointer font-semibold">
+                  Wie schnell erhalte ich eine Rückmeldung?
+                </summary>
+                <p class="mt-2 text-sm text-slate-600">
+                  In der Regel innerhalb von 24&nbsp;Stunden.
+                </p>
+              </details>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- Kontakt -->
+    <section id="kontakt" class="py-14">
+      <div class="mx-auto w-[92%] max-w-[1100px]">
+        <p class="text-sm font-bold uppercase tracking-[0.12em] text-brand">
+          Kontakt
+        </p>
+        <h2 class="mt-1 text-3xl font-bold">Kontakt aufnehmen</h2>
+        <p class="mt-1 max-w-[60ch] text-slate-600">
+          Haben Sie Fragen oder möchten Sie Ihre Immobilie verkaufen?
+          Kontaktieren Sie uns direkt:
+        </p>
+
+        <div class="mt-5 grid gap-5 md:grid-cols-2">
+          <!-- Map + actions -->
+          <div
+            class="rounded-xl2 border border-slate-200 bg-white p-3 shadow-soft"
+          >
+            <iframe
+              class="h-80 w-full rounded-xl border-0"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps?q=Winterthur,+Switzerland&hl=de&z=12&output=embed"
+              title="Google Maps – Winterthur"
+            ></iframe>
+            <div class="mt-3 flex flex-wrap gap-2">
+              <a
+                href="#bewertung"
+                class="inline-flex items-center rounded-full border border-slate-200 bg-white px-4 py-2 font-semibold hover:bg-slate-50"
+                >Bewertung anfragen</a
+              >
+              <a
+                class="inline-flex items-center rounded-full border border-slate-200 bg-white px-4 py-2 font-semibold hover:bg-slate-50"
+                target="_blank"
+                rel="noreferrer"
+                href="https://maps.google.com/?q=Musterstrasse+10,+8400+Winterthur"
+                >Adresse öffnen</a
+              >
+            </div>
+          </div>
+
+          <!-- Contact form -->
+          <form
+            id="contactForm"
+            class="rounded-xl2 border border-slate-200 bg-white p-5 shadow-soft"
+            aria-label="Kontaktformular"
+          >
+            <label class="grid gap-1">
+              <span class="text-sm font-medium"
+                >Name
+                <span aria-hidden="true" class="text-green-600">*</span></span
+              >
+              <input
+                name="name"
+                placeholder="Vor- und Nachname"
+                required
+                class="w-full rounded-xl border border-slate-300 bg-white px-3 py-2 outline-none focus:border-brand focus:ring-4 focus:ring-brand/30"
+              />
+            </label>
+            <label class="mt-3 grid gap-1">
+              <span class="text-sm font-medium"
+                >E‑Mail
+                <span aria-hidden="true" class="text-green-600">*</span></span
+              >
+              <input
+                type="email"
+                name="email"
+                placeholder="name@domain.ch"
+                required
+                class="w-full rounded-xl border border-slate-300 bg-white px-3 py-2 outline-none focus:border-brand focus:ring-4 focus:ring-brand/30"
+              />
+            </label>
+            <label class="mt-3 grid gap-1">
+              <span class="text-sm font-medium"
+                >Nachricht
+                <span aria-hidden="true" class="text-green-600">*</span></span
+              >
+              <textarea
+                name="message"
+                placeholder="Wie können wir helfen?"
+                required
+                class="min-h-[120px] w-full resize-y rounded-xl border border-slate-300 bg-white px-3 py-2 outline-none focus:border-brand focus:ring-4 focus:ring-brand/30"
+              ></textarea>
+            </label>
+            <button
+              type="submit"
+              class="mt-4 inline-flex w-full items-center justify-center rounded-full bg-brand px-5 py-2.5 font-semibold text-white shadow-soft transition hover:brightness-105"
+            >
+              Nachricht senden
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-200 bg-white py-8">
+      <div class="mx-auto w-[92%] max-w-[1100px] grid gap-6 md:grid-cols-3">
+        <div>
+          <div class="mb-2 flex items-center gap-2">
+            <div
+              class="grid h-9 w-9 place-items-center rounded-lg bg-gradient-to-br from-brand to-brand2 text-white font-extrabold"
+            >
+              W
+            </div>
+            <div class="font-extrabold tracking-wide">Winti Immobilien</div>
+          </div>
+          <p class="text-sm text-slate-500">
+            © <span id="year"></span> Winti Immobilien, Winterthur. Alle Rechte
+            vorbehalten.
+          </p>
+        </div>
+        <div>
+          <strong>Rechtliches</strong>
+          <ul class="mt-2 space-y-1 text-sm text-slate-600">
+            <li><a href="#top" class="hover:underline">Impressum</a></li>
+            <li><a href="#top" class="hover:underline">Datenschutz</a></li>
+            <li><a href="#top" class="hover:underline">AGB</a></li>
+          </ul>
+        </div>
+        <div>
+          <strong>Schnellzugriff</strong>
+          <ul class="mt-2 space-y-1 text-sm text-slate-600">
+            <li><a href="#bewertung" class="hover:underline">Bewertung</a></li>
+            <li>
+              <a href="#leistungen" class="hover:underline">Leistungen</a>
+            </li>
+            <li><a href="#kontakt" class="hover:underline">Kontakt</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Toast -->
+    <div
+      id="toast"
+      class="fixed left-1/2 bottom-5 -translate-x-1/2 rounded-lg bg-slate-900 px-4 py-2 text-white opacity-0 pointer-events-none transition shadow-xl"
+      role="status"
+      aria-live="polite"
+    >
+      Danke! Ihre Nachricht wurde gesendet.
+    </div>
+
+    <!-- JSON-LD (SEO) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "RealEstateAgent",
+        "name": "Winti Immobilien",
+        "areaServed": "Winterthur",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Winterthur",
+          "addressCountry": "CH"
+        },
+        "email": "info@winti-immobilien.ch",
+        "telephone": "+41 44 000 00 00",
+        "url": "https://winti-immobilien.ch"
+      }
+    </script>
+
+    <!-- Minimal JS (no styling) -->
+    <script>
+      const $ = (s, r = document) => r.querySelector(s);
+      const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+
+      /* ---------------- Mobile menu toggle ---------------- */
+      const menuBtn = $("#menuBtn");
+      const mobileMenu = $("#mobileMenu");
+      if (menuBtn && mobileMenu) {
+        menuBtn.addEventListener("click", () => {
+          const open = !mobileMenu.hasAttribute("data-js-hidden");
+          if (open) {
+            mobileMenu.setAttribute("data-js-hidden", "");
+            menuBtn.setAttribute("aria-expanded", "false");
+          } else {
+            mobileMenu.removeAttribute("data-js-hidden");
+            menuBtn.setAttribute("aria-expanded", "true");
+          }
+        });
+      }
+
+      /* ---------------- Toast helper ---------------- */
+      const toast = $("#toast");
+      function showToast(msg) {
+        if (!toast) return;
+        toast.textContent = msg || "Danke! Ihre Nachricht wurde gesendet.";
+        toast.classList.remove("opacity-0", "pointer-events-none");
+        setTimeout(
+          () => toast.classList.add("opacity-0", "pointer-events-none"),
+          3200
+        );
+      }
+
+      /* ---------------- Form submit (mailto fallback — no backend) ---------------- */
+      function handleSubmit(e) {
+        e.preventDefault();
+        const form = e.currentTarget;
+        const required = $$("[required]", form);
+        const invalid = required.find((el) => !String(el.value || "").trim());
+        if (invalid) {
+          invalid.focus();
+          showToast("Bitte füllen Sie alle Pflichtfelder aus.");
+          return;
+        }
+        const data = new FormData(form);
+        const subject = encodeURIComponent(
+          "Anfrage über Website – Winti Immobilien"
+        );
+        const body = encodeURIComponent(
+          Array.from(data.entries())
+            .map(([k, v]) => `${k}: ${v}`)
+            .join("\n")
+        );
+        window.location.href = `mailto:info@winti-immobilien.ch?subject=${subject}&body=${body}`;
+        form.reset();
+        showToast("Danke! Wir melden uns in Kürze.");
+      }
+      $("#valuationForm")?.addEventListener("submit", handleSubmit);
+      $("#contactForm")?.addEventListener("submit", handleSubmit);
+      $("#year") && ($("#year").textContent = new Date().getFullYear());
+
+      /* ---------------- Segmented chips (simple .is-active toggler) ---------------- */
+      function setupSeg(group) {
+        const name = group.getAttribute("data-seg");
+        if (!name) return;
+
+        // hidden field to hold current value
+        let hidden = group.parentElement.querySelector(
+          `input[type="hidden"][name="${name}"]`
+        );
+        if (!hidden) {
+          hidden = document.createElement("input");
+          hidden.type = "hidden";
+          hidden.name = name;
+          group.parentElement.appendChild(hidden);
+        }
+
+        const btns = $$("button.seg", group);
+
+        // initialize ARIA + default value
+        btns.forEach((btn, i) => {
+          btn.setAttribute("role", "radio");
+          const active = btn.classList.contains("is-active");
+          btn.setAttribute("tabindex", active ? "0" : "-1");
+          btn.setAttribute("aria-checked", active ? "true" : "false");
+          if (active)
+            hidden.value = btn.dataset.value || btn.textContent.trim();
+
+          btn.addEventListener("click", () => activate(i));
+          btn.addEventListener("keydown", (e) => {
+            if (e.key === " " || e.key === "Enter") {
+              e.preventDefault();
+              activate(i);
+            } else if (e.key === "ArrowRight" || e.key === "ArrowDown") {
+              e.preventDefault();
+              activate((i + 1) % btns.length);
+            } else if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
+              e.preventDefault();
+              activate((i - 1 + btns.length) % btns.length);
+            }
+          });
+        });
+
+        // ensure one default active
+        if (!btns.some((b) => b.classList.contains("is-active")) && btns.length)
+          activate(0);
+
+        function activate(idx) {
+          btns.forEach((b) => {
+            b.classList.remove("is-active");
+            b.setAttribute("aria-checked", "false");
+            b.setAttribute("tabindex", "-1");
+          });
+          const cur = btns[idx];
+          cur.classList.add("is-active");
+          cur.setAttribute("aria-checked", "true");
+          cur.setAttribute("tabindex", "0");
+          cur.focus();
+          hidden.value = cur.dataset.value || cur.textContent.trim();
+        }
+      }
+      document.querySelectorAll("#valuationForm [data-seg]").forEach(setupSeg);
+
+      /* ---------------- Smooth scroll (accounts for sticky header) ---------------- */
+      const header = document.getElementById("siteHeader");
+      const headerH = () => (header ? header.offsetHeight + 8 : 0);
+      $$('a[href^="#"]').forEach((a) => {
+        a.addEventListener("click", (e) => {
+          const id = a.getAttribute("href");
+          if (!id || id === "#") return;
+          const el = document.querySelector(id);
+          if (!el) return;
+          e.preventDefault();
+          const y = el.getBoundingClientRect().top + window.scrollY - headerH();
+          window.scrollTo({ top: y, behavior: "smooth" });
+          history.pushState(null, "", id);
+        });
+      });
+    </script>
+  </body>
+</html>

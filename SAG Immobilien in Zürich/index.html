@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="de-CH">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>SAG Immobilien – Immobilie verkaufen in Zürich</title>
+    <meta
+      name="description"
+      content="SAG Immobilien in Zürich: Sichere, transparente Immobilienbewertung & Verkauf. Persönliche Beratung und maximale Reichweite – jetzt kostenlose Einschätzung anfordern."
+    />
+    <meta
+      property="og:title"
+      content="SAG Immobilien – Immobilie verkaufen in Zürich"
+    />
+    <meta
+      property="og:description"
+      content="Kostenlose Immobilienbewertung & persönliche Beratung in Zürich. Wir verkaufen Ihr Haus/Ihre Wohnung sicher und zum besten Preis."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="de_CH" />
+
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind CSS (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          container: { center: true, padding: "1rem" },
+          extend: {
+            colors: {
+              brand: "#8B5E3C", // primary (coffee brown)
+              brandDark: "#6E452A", // hover/darker
+              brandLight: "#CDAA7D", // accent/tint
+              brandMuted: "#F2E7DC", // light bg
+              dark: "#0f172a", // body text
+            },
+            boxShadow: {
+              soft: "0 10px 30px rgba(2,12,27,.08)",
+            },
+            borderRadius: {
+              xl2: "1.25rem",
+            },
+            fontFamily: {
+              sans: [
+                "Inter",
+                "system-ui",
+                "Segoe UI",
+                "Roboto",
+                "Helvetica",
+                "Arial",
+                "sans-serif",
+              ],
+              display: ["Playfair Display", "Georgia", "serif"],
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+      /* Better focus ring for accessibility */
+      .focus-ring:focus-visible {
+        outline: 3px solid rgba(8, 145, 178, 0.5);
+        outline-offset: 2px;
+      }
+    </style>
+  </head>
+  <body class="text-dark/90 bg-slate-50 font-sans">
+    <!-- Skip link -->
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only focus-ring absolute left-3 top-3 z-[100] rounded-md bg-white px-3 py-2 text-sm shadow-soft"
+      >Zum Inhalt springen</a
+    >
+
+    <!-- Header / Nav -->
+    <!-- Header -->
+    <header
+      class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-slate-200"
+    >
+      <div class="relative mx-auto w-full max-w-7xl px-2 sm:px-4 lg:px-6 py-3">
+        <!-- Left: Brand (stays near the edge) -->
+        <a
+          href="#top"
+          aria-label="SAG Immobilien – Startseite"
+          class="inline-flex items-center gap-3"
+        >
+          <img
+            src="SAG Immobilien logo.png"
+            alt="SAG Immobilien Logo"
+            class="h-12 sm:h-14 lg:h-16 w-auto object-contain select-none"
+            decoding="async"
+            loading="eager"
+          />
+        </a>
+
+        <!-- Center: Nav (always centered to viewport) -->
+        <nav
+          aria-label="Hauptnavigation"
+          class="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 items-center gap-8 text-sm"
+        >
+          <a href="#leistungen" class="hover:text-brand transition"
+            >Leistungen</a
+          >
+          <a href="#vorteile" class="hover:text-brand transition">Warum wir</a>
+          <a href="#bewertung" class="hover:text-brand transition">Bewertung</a>
+          <a href="#kontakt" class="hover:text-brand transition">Kontakt</a>
+        </nav>
+
+        <!-- Right: CTA (stays near the edge) -->
+        <a
+          href="#bewertung"
+          class="hidden md:inline-flex absolute right-2 sm:right-4 lg:right-6 top-1/2 -translate-y-1/2 items-center gap-2 rounded-xl bg-brand px-4 py-2 text-sm font-semibold text-white shadow-soft hover:bg-brand/90 transition"
+        >
+          Kostenlose Bewertung
+        </a>
+
+        <!-- Mobile menu (simple fallback) -->
+        <details class="md:hidden absolute right-2 top-1/2 -translate-y-1/2">
+          <summary
+            class="list-none cursor-pointer rounded-lg border border-slate-300 px-3 py-2 text-sm"
+          >
+            Menü
+          </summary>
+          <div
+            class="mt-3 grid gap-2 rounded-xl border border-slate-200 bg-white p-3 shadow-soft"
+          >
+            <a href="#leistungen" class="rounded-lg px-3 py-2 hover:bg-slate-50"
+              >Leistungen</a
+            >
+            <a href="#vorteile" class="rounded-lg px-3 py-2 hover:bg-slate-50"
+              >Warum wir</a
+            >
+            <a href="#bewertung" class="rounded-lg px-3 py-2 hover:bg-slate-50"
+              >Bewertung</a
+            >
+            <a href="#kontakt" class="rounded-lg px-3 py-2 hover:bg-slate-50"
+              >Kontakt</a
+            >
+            <a
+              href="#bewertung"
+              class="rounded-lg px-3 py-2 bg-brand text-white"
+              >Kostenlose Bewertung</a
+            >
+          </div>
+        </details>
+      </div>
+    </header>
+
+    <main id="main">
+      <!-- Hero -->
+      <section id="top" class="relative">
+        <div
+          class="h-[72vh] min-h-[520px] w-full bg-center bg-cover"
+          style="
+            background-image: url('https://images.unsplash.com/photo-1467269204594-9661b134dd2b?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Z2VybWFueXxlbnwwfHwwfHx8MA%3D%3D');
+          "
+          role="img"
+          aria-label="Helle Wohnung mit moderner Einrichtung in Zürich"
+        >
+          <div
+            class="h-full w-full bg-gradient-to-t from-white via-white/70 to-white/20"
+          ></div>
+        </div>
+
+        <div class="container max-w-6xl -mt-40 relative">
+          <div
+            class="mx-auto max-w-2xl rounded-2xl bg-white p-6 sm:p-8 shadow-soft"
+          >
+            <p class="text-sm font-medium text-brand">
+              Immobilie verkaufen – sicher, transparent
+            </p>
+            <h1
+              class="mt-2 font-display text-3xl sm:text-4xl font-semibold leading-snug text-dark"
+            >
+              Der zuverlässige Weg zum besten Preis in Zürich
+            </h1>
+            <p class="mt-3 text-slate-600">
+              Kostenlose Wertermittlung, professionelle Vermarktung und
+              persönliche Begleitung bis zum Notartermin.
+            </p>
+            <div class="mt-5 flex flex-wrap gap-3">
+              <a
+                href="#bewertung"
+                class="focus-ring inline-flex items-center gap-2 rounded-xl bg-brand px-5 py-3 text-sm font-semibold text-white hover:bg-brand/90 transition"
+              >
+                Kostenlose Bewertung starten
+              </a>
+              <a
+                href="#leistungen"
+                class="focus-ring inline-flex items-center gap-2 rounded-xl border border-slate-300 bg-white px-5 py-3 text-sm font-medium text-dark hover:bg-slate-50 transition"
+              >
+                Unsere Leistungen
+              </a>
+            </div>
+            <div class="mt-5 flex items-center gap-4 text-xs text-slate-500">
+              <span class="inline-flex items-center gap-1"
+                >✔️ Keine versteckten Kosten</span
+              >
+              <span class="inline-flex items-center gap-1"
+                >✔️ 24h Rückmeldung</span
+              >
+              <span class="inline-flex items-center gap-1"
+                >✔️ Lokal in Zürich</span
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Leistungen -->
+      <section id="leistungen" class="py-16 sm:py-20">
+        <div class="container max-w-6xl">
+          <div class="mx-auto mb-10 max-w-2xl text-center">
+            <p class="text-sm font-medium text-brand">Leistungen</p>
+            <h2 class="mt-2 font-display text-2xl sm:text-3xl font-semibold">
+              Alles für einen erfolgreichen Verkauf
+            </h2>
+            <p class="mt-2 text-slate-600">
+              Von der Bewertung bis zur Schlüsselübergabe – wir kümmern uns um
+              jeden Schritt.
+            </p>
+          </div>
+
+          <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <!-- Card -->
+            <div
+              class="rounded-2xl border border-slate-200 bg-white p-6 shadow-soft"
+            >
+              <div
+                class="h-10 w-10 rounded-lg bg-brand/10 text-brand grid place-items-center mb-4"
+              >
+                📊
+              </div>
+              <h3 class="font-semibold">Wertermittlung</h3>
+              <p class="mt-2 text-sm text-slate-600">
+                Marktgerechte Bewertung Ihrer Immobilie basierend auf Standort,
+                Zustand und Nachfrage.
+              </p>
+            </div>
+
+            <div
+              class="rounded-2xl border border-slate-200 bg-white p-6 shadow-soft"
+            >
+              <div
+                class="h-10 w-10 rounded-lg bg-brand/10 text-brand grid place-items-center mb-4"
+              >
+                📸
+              </div>
+              <h3 class="font-semibold">Vermarktung</h3>
+              <p class="mt-2 text-sm text-slate-600">
+                Hochwertige Fotos, Exposé, Online-Portale & Social Media –
+                maximale Sichtbarkeit.
+              </p>
+            </div>
+
+            <div
+              class="rounded-2xl border border-slate-200 bg-white p-6 shadow-soft"
+            >
+              <div
+                class="h-10 w-10 rounded-lg bg-brand/10 text-brand grid place-items-center mb-4"
+              >
+                🤝
+              </div>
+              <h3 class="font-semibold">Besichtigungen & Verhandlung</h3>
+              <p class="mt-2 text-sm text-slate-600">
+                Qualifizierte Interessenten, strukturierte Termine, starke
+                Verhandlungsführung.
+              </p>
+            </div>
+
+            <div
+              class="rounded-2xl border border-slate-200 bg-white p-6 shadow-soft"
+            >
+              <div
+                class="h-10 w-10 rounded-lg bg-brand/10 text-brand grid place-items-center mb-4"
+              >
+                📄
+              </div>
+              <h3 class="font-semibold">Dokumente & Recht</h3>
+              <p class="mt-2 text-sm text-slate-600">
+                Unterstützung bei Grundbuch, Energieausweis, Notar –
+                rechtssicher und stressfrei.
+              </p>
+            </div>
+
+            <div
+              class="rounded-2xl border border-slate-200 bg-white p-6 shadow-soft"
+            >
+              <div
+                class="h-10 w-10 rounded-lg bg-brand/10 text-brand grid place-items-center mb-4"
+              >
+                🔐
+              </div>
+              <h3 class="font-semibold">Diskreter Verkauf</h3>
+              <p class="mt-2 text-sm text-slate-600">
+                Auf Wunsch ohne öffentliche Inserate – passgenau über unser
+                Netzwerk.
+              </p>
+            </div>
+
+            <div
+              class="rounded-2xl border border-slate-200 bg-white p-6 shadow-soft"
+            >
+              <div
+                class="h-10 w-10 rounded-lg bg-brand/10 text-brand grid place-items-center mb-4"
+              >
+                📈
+              </div>
+              <h3 class="font-semibold">Preisstrategie</h3>
+              <p class="mt-2 text-sm text-slate-600">
+                Datenbasiert & transparent – so erreichen wir den besten
+                Marktpreis.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Warum wir -->
+      <section id="vorteile" class="py-16 sm:py-20 bg-white">
+        <div class="container max-w-6xl">
+          <div class="grid items-center gap-10 lg:grid-cols-2">
+            <div>
+              <p class="text-sm font-medium text-brand">
+                Warum SAG Immobilien?
+              </p>
+              <h2 class="mt-2 font-display text-2xl sm:text-3xl font-semibold">
+                Lokal, erfahren, persönlich
+              </h2>
+              <p class="mt-3 text-slate-600">
+                Wir kennen den Zürcher Immobilienmarkt und begleiten Sie
+                transparent – mit klaren Schritten und klarer Kommunikation.
+              </p>
+              <ul class="mt-6 grid gap-3 text-sm text-slate-700">
+                <li class="flex gap-3">
+                  <span>✅</span> Feste Ansprechperson – kurze Wege, schnelle
+                  Antworten
+                </li>
+                <li class="flex gap-3">
+                  <span>✅</span> Käuferdatenbank & Netzwerk in der Region
+                </li>
+                <li class="flex gap-3">
+                  <span>✅</span> Faire Provision, erfolgsabhängig
+                </li>
+              </ul>
+              <div class="mt-6 flex gap-3">
+                <a
+                  href="#bewertung"
+                  class="focus-ring inline-flex items-center gap-2 rounded-xl bg-brand px-5 py-3 text-sm font-semibold text-white hover:bg-brand/90 transition"
+                >
+                  Bewertung starten
+                </a>
+                <a
+                  href="#kontakt"
+                  class="focus-ring inline-flex items-center gap-2 rounded-xl border border-slate-300 bg-white px-5 py-3 text-sm font-medium hover:bg-slate-50 transition"
+                >
+                  Kontakt aufnehmen
+                </a>
+              </div>
+            </div>
+            <div
+              class="rounded-2xl overflow-hidden shadow-soft border border-slate-200"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=1600&auto=format&fit=crop"
+                alt="Zürich Altstadt und See – Immobilienumfeld"
+                class="h-full w-full object-cover"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Bewertung (Lead Form – static front-end) -->
+      <section id="bewertung" class="py-16 sm:py-20">
+        <div class="container max-w-6xl">
+          <div class="mx-auto mb-10 max-w-2xl text-center">
+            <p class="text-sm font-medium text-brand">
+              Kostenlose Immobilienbewertung
+            </p>
+            <h2 class="mt-2 font-display text-2xl sm:text-3xl font-semibold">
+              Unverbindliche Einschätzung in 60 Sekunden
+            </h2>
+            <p class="mt-2 text-slate-600">
+              Füllen Sie das Formular aus – wir melden uns innerhalb von 24
+              Stunden.
+            </p>
+          </div>
+
+          <div class="grid gap-8 lg:grid-cols-2">
+            <form
+              class="rounded-2xl border border-slate-200 bg-white p-6 shadow-soft"
+            >
+              <div class="grid gap-4 sm:grid-cols-2">
+                <label class="grid gap-1 text-sm">
+                  <span>Vor- & Nachname</span>
+                  <input
+                    type="text"
+                    required
+                    class="focus-ring rounded-xl border border-slate-300 px-3 py-2"
+                    placeholder="Max Beispiel"
+                  />
+                </label>
+                <label class="grid gap-1 text-sm">
+                  <span>E-Mail</span>
+                  <input
+                    type="email"
+                    required
+                    class="focus-ring rounded-xl border border-slate-300 px-3 py-2"
+                    placeholder="max@beispiel.ch"
+                  />
+                </label>
+                <label class="grid gap-1 text-sm">
+                  <span>Telefon</span>
+                  <input
+                    type="tel"
+                    class="focus-ring rounded-xl border border-slate-300 px-3 py-2"
+                    placeholder="+41 44 000 00 00"
+                  />
+                </label>
+                <label class="grid gap-1 text-sm">
+                  <span>PLZ (Zürich)</span>
+                  <input
+                    type="text"
+                    class="focus-ring rounded-xl border border-slate-300 px-3 py-2"
+                    placeholder="8001"
+                  />
+                </label>
+                <label class="sm:col-span-2 grid gap-1 text-sm">
+                  <span>Immobilienart</span>
+                  <select
+                    class="focus-ring rounded-xl border border-slate-300 px-3 py-2"
+                  >
+                    <option>Wohnung</option>
+                    <option>Einfamilienhaus</option>
+                    <option>Mehrfamilienhaus</option>
+                    <option>Gewerbe</option>
+                    <option>Grundstück</option>
+                  </select>
+                </label>
+                <label class="sm:col-span-2 grid gap-1 text-sm">
+                  <span>Nachricht (optional)</span>
+                  <textarea
+                    rows="4"
+                    class="focus-ring rounded-xl border border-slate-300 px-3 py-2"
+                    placeholder="Kurze Beschreibung Ihrer Immobilie..."
+                  ></textarea>
+                </label>
+              </div>
+
+              <div
+                class="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between"
+              >
+                <p class="text-xs text-slate-500">
+                  Mit dem Absenden stimmen Sie unserer Verarbeitung zum Zweck
+                  der Bewertung zu.
+                </p>
+                <button
+                  type="button"
+                  class="focus-ring inline-flex items-center justify-center rounded-xl bg-brand px-5 py-3 text-sm font-semibold text-white hover:bg-brand/90 transition"
+                >
+                  Anfrage senden
+                </button>
+              </div>
+            </form>
+
+            <div
+              class="rounded-2xl border border-slate-200 bg-white p-6 shadow-soft"
+            >
+              <h3 class="font-semibold text-lg">So läuft die Bewertung ab</h3>
+              <ol class="mt-4 grid gap-3 text-sm text-slate-700">
+                <li class="flex gap-3">
+                  <span class="font-semibold text-brand">1.</span> Kurze
+                  Datenerfassung online
+                </li>
+                <li class="flex gap-3">
+                  <span class="font-semibold text-brand">2.</span> Persönliche
+                  Rückmeldung binnen 24h
+                </li>
+                <li class="flex gap-3">
+                  <span class="font-semibold text-brand">3.</span> Präzise
+                  Wertermittlung & Preisstrategie
+                </li>
+                <li class="flex gap-3">
+                  <span class="font-semibold text-brand">4.</span> Vermarktung &
+                  Verkauf zum Top-Preis
+                </li>
+              </ol>
+
+              <div class="mt-6 rounded-xl bg-slate-50 p-4 text-sm">
+                <p class="font-medium">Transparenz-Hinweis</p>
+                <p class="mt-1 text-slate-600">
+                  Wir arbeiten erfolgsbasiert. Kosten fallen erst bei
+                  erfolgreichem Verkauf an.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Testimonials -->
+      <section class="py-16 sm:py-20 bg-white">
+        <div class="container max-w-6xl">
+          <div class="mx-auto mb-10 max-w-2xl text-center">
+            <p class="text-sm font-medium text-brand">Erfahrungen</p>
+            <h2 class="mt-2 font-display text-2xl sm:text-3xl font-semibold">
+              Was Verkäufer über uns sagen
+            </h2>
+          </div>
+
+          <div class="grid gap-6 md:grid-cols-3">
+            <figure
+              class="rounded-2xl border border-slate-200 bg-white p-6 shadow-soft"
+            >
+              <blockquote class="text-sm text-slate-700">
+                “Schnelle Rückmeldung, professionelle Fotos und ein Verkauf über
+                unseren Erwartungen.”
+              </blockquote>
+              <figcaption class="mt-4 text-xs text-slate-500">
+                A. Keller, Zürich-Enge
+              </figcaption>
+            </figure>
+            <figure
+              class="rounded-2xl border border-slate-200 bg-white p-6 shadow-soft"
+            >
+              <blockquote class="text-sm text-slate-700">
+                “Klare Kommunikation und reibungsloser Ablauf bis zum
+                Notartermin.”
+              </blockquote>
+              <figcaption class="mt-4 text-xs text-slate-500">
+                M. Steiner, Seefeld
+              </figcaption>
+            </figure>
+            <figure
+              class="rounded-2xl border border-slate-200 bg-white p-6 shadow-soft"
+            >
+              <blockquote class="text-sm text-slate-700">
+                “Absolute Empfehlung für den Verkauf in Zürich.”
+              </blockquote>
+              <figcaption class="mt-4 text-xs text-slate-500">
+                L. Frei, Wiedikon
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- Kontakt -->
+      <section id="kontakt" class="py-16 sm:py-20">
+        <div class="container max-w-6xl">
+          <div class="grid gap-8 lg:grid-cols-2">
+            <div
+              class="rounded-2xl border border-slate-200 bg-white p-6 shadow-soft"
+            >
+              <h3 class="font-semibold text-lg">Kontakt</h3>
+              <p class="mt-2 text-slate-600 text-sm">SAG Immobilien Zürich</p>
+              <div class="mt-4 grid gap-2 text-sm">
+                <a href="tel:+41440000000" class="hover:text-brand transition"
+                  >+41 44 000 00 00</a
+                >
+                <a
+                  href="mailto:hallo@sag-immobilien.ch"
+                  class="hover:text-brand transition"
+                  >hallo@sag-immobilien.ch</a
+                >
+                <p class="text-slate-600">Bahnhofstrasse 1, 8001 Zürich</p>
+              </div>
+              <div class="mt-6 flex gap-3">
+                <a
+                  href="tel:+41440000000"
+                  class="focus-ring inline-flex items-center gap-2 rounded-xl border border-brand/20 bg-white px-4 py-2 text-sm font-medium text-brand shadow-soft hover:bg-brand/5 transition"
+                  >Anrufen</a
+                >
+                <a
+                  href="#bewertung"
+                  class="focus-ring inline-flex items-center gap-2 rounded-xl bg-brand px-4 py-2 text-sm font-semibold text-white shadow-soft hover:bg-brand/90 transition"
+                  >Bewertung anfragen</a
+                >
+              </div>
+            </div>
+
+            <div
+              class="rounded-2xl overflow-hidden border border-slate-200 shadow-soft"
+            >
+              <!-- Responsive map (16:10) -->
+              <div class="relative w-full" style="padding-top: 62.5%">
+                <iframe
+                  class="absolute inset-0 h-full w-full"
+                  src="https://www.openstreetmap.org/export/embed.html?bbox=8.47%2C47.33%2C8.62%2C47.42&layer=mapnik&marker=47.3769%2C8.5417"
+                  title="Karte: Zürich"
+                  aria-label="Interaktive Karte von Zürich"
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                >
+                </iframe>
+              </div>
+
+              <!-- Optional: attribution / open larger map -->
+              <div
+                class="flex items-center justify-between border-t border-slate-200 bg-white px-3 py-2 text-xs text-slate-500"
+              >
+                <span>© OpenStreetMap-Mitwirkende</span>
+                <a
+                  class="underline hover:text-brand"
+                  href="https://www.openstreetmap.org/?mlat=47.3769&mlon=8.5417#map=13/47.3769/8.5417"
+                  target="_blank"
+                  rel="noopener"
+                  >Größere Karte öffnen</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-200 bg-white">
+      <div class="container max-w-6xl py-10">
+        <div
+          class="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between"
+        >
+          <div class="flex items-center gap-3">
+            <div
+              class="h-9 w-9 rounded-xl bg-brand text-white grid place-items-center font-bold"
+            >
+              SAG
+            </div>
+            <div class="text-sm">
+              <p class="font-semibold">SAG Immobilien</p>
+              <p class="text-slate-500">Zürich</p>
+            </div>
+          </div>
+          <p class="text-xs text-slate-500">
+            &copy; <span id="year"></span> SAG Immobilien. Alle Rechte
+            vorbehalten.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // set year (no framework)
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="de-CH">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Immobilie verkaufen – Standorte & Marken</title>
+    <meta name="description" content="Schneller Einstieg: Wählen Sie Ihre Stadt/Marke für 'Immobilie verkaufen' Seiten. Kostenlose Bewertung, klare Vermarktung, starke Calls-to-Action." />
+    <meta property="og:title" content="Immobilie verkaufen – Standorte & Marken" />
+    <meta property="og:locale" content="de_CH" />
+
+    <!-- Tailwind (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          container: { center: true, padding: "1rem" },
+          extend: {
+            colors: { brand: "#0C4A6E", brand2: "#0891B2", dark: "#0f172a" },
+            boxShadow: { soft: "0 10px 30px rgba(2,12,27,.08)" },
+            borderRadius: { xl2: "1.25rem" },
+            fontFamily: {
+              sans: ["Inter","system-ui","Segoe UI","Roboto","Helvetica","Arial","sans-serif"],
+              display: ["Playfair Display","Georgia","serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+
+    <style>
+      /* Mobile menu helper (hidden by default, shown via JS) */
+      [data-js-hidden]{display:none;}
+
+      /* Hard-ensure horizontal snap + momentum scrolling (iOS friendly) */
+      #tCarousel{
+        -webkit-overflow-scrolling: touch;
+        overscroll-behavior-x: contain;
+        scroll-snap-type: x mandatory;
+        touch-action: pan-x;
+      }
+      #tCarousel > *{ scroll-snap-align: center; }
+      /* Hide webkit scrollbar just for the carousel track */
+      #tCarousel::-webkit-scrollbar{ display:none; }
+    </style>
+  </head>
+
+  <body class="text-dark bg-white">
+    <!-- Sticky Header -->
+    <header id="siteHeader" class="sticky top-0 z-50 bg-white/90 backdrop-blur supports-[backdrop-filter]:bg-white/60 border-b transition-shadow">
+      <div class="container h-16 flex items-center justify-between">
+        <!-- Brand: home icon + bigger name -->
+        <a href="#top" class="group flex items-center gap-3" aria-label="Startseite – Immobilie verkaufen">
+          <svg viewBox="0 0 24 24" aria-hidden="true" class="h-8 w-8 md:h-9 md:w-9 text-brand group-hover:text-brand2 transition">
+            <path fill="currentColor" d="M11.47 2.97a1 1 0 0 1 1.06 0l8.75 6a1 1 0 0 1-1.06 1.69l-.72-.5V20a2 2 0 0 1-2 2H6.5a2 2 0 0 1-2-2v-9.84l-.72.5A1 1 0 1 1 2.72 8.97l8.75-6ZM6.5 10.5V20h11V10.5L12 5.8l-5.5 4.7Z"/>
+          </svg>
+          <span class="font-display font-extrabold tracking-wide text-xl sm:text-2xl md:text-3xl text-dark group-hover:text-brand transition drop-shadow-sm whitespace-nowrap">
+            Immobilie verkaufen
+          </span>
+        </a>
+
+        <!-- Desktop Nav -->
+        <nav class="hidden sm:flex items-center gap-4 md:gap-6">
+          <a href="#staedte" class="px-3 py-2 text-base md:text-lg font-semibold text-dark/90 hover:text-brand underline-offset-4 hover:underline rounded-lg focus:outline-none focus:ring-2 focus:ring-brand/40">Städte/Marken</a>
+          <a href="#seo" class="px-3 py-2 text-base md:text-lg font-semibold text-dark/90 hover:text-brand underline-offset-4 hover:underline rounded-lg focus:outline-none focus:ring-2 focus:ring-brand/40">SEO-Hinweise</a>
+          <a href="#testimonials" class="px-3 py-2 text-base md:text-lg font-semibold text-dark/90 hover:text-brand underline-offset-4 hover:underline rounded-lg focus:outline-none focus:ring-2 focus:ring-brand/40">Kundenstimmen</a>
+        </nav>
+
+        <!-- Mobile Menu Button -->
+        <button id="menuBtn" class="sm:hidden inline-flex items-center justify-center h-10 w-10 rounded-lg border border-slate-200 text-slate-700"
+                aria-expanded="false" aria-controls="mobileMenu" aria-label="Menü öffnen">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Mobile Nav Drawer -->
+      <nav id="mobileMenu" class="sm:hidden bg-white/95 backdrop-blur border-t" data-js-hidden aria-label="Mobile Navigation">
+        <div class="container py-3 grid gap-2">
+          <a href="#staedte" class="block rounded-xl px-3 py-3 text-base font-semibold hover:bg-slate-50">Städte/Marken</a>
+          <a href="#seo" class="block rounded-xl px-3 py-3 text-base font-semibold hover:bg-slate-50">SEO-Hinweise</a>
+          <a href="#testimonials" class="block rounded-xl px-3 py-3 text-base font-semibold hover:bg-slate-50">Kundenstimmen</a>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Hero -->
+    <section id="top" class="relative scroll-mt-24">
+      <div class="h-[52vh] sm:h-[62vh] min-h-[360px] sm:min-h-[420px] bg-cover bg-center"
+           style="background-image: url('https://wpblogassets.paytm.com/paytmblog/uploads/2023/09/Blog_Paytm_Documents-Required-for-Home-Loan-in-2022-Complete-Checklist-800x500.jpg');"
+           role="img" aria-label="Moderne Wohnung in der Schweiz">
+        <div class="h-full w-full bg-gradient-to-t from-white via-white/70 to-white/0"></div>
+      </div>
+      <div class="container -mt-20 sm:-mt-24 relative px-4">
+        <div class="bg-white shadow-soft rounded-xl2 p-5 sm:p-6 md:p-10">
+          <p class="text-brand font-semibold mb-1">Startseite – Hub</p>
+          <h1 class="font-display text-2xl sm:text-3xl md:text-4xl leading-tight">Immobilie verkaufen – wählen Sie Ihren Standort</h1>
+          <p class="text-slate-600 mt-3">Diese Seite verlinkt auf die einzelnen City/Brand-Unterseiten mit eigenem SEO-Text und Kontakt/CTA.</p>
+          <div class="mt-5 sm:mt-6 flex flex-wrap gap-3">
+            <a href="#staedte" class="px-5 py-3 rounded-xl bg-brand text-white">Zu den Unterseiten</a>
+            <a href="#seo" class="px-5 py-3 rounded-xl border border-slate-300">SEO-Checkliste</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- City/Brand cards -->
+    <section id="staedte" class="container px-4 py-12 sm:py-14 scroll-mt-24">
+      <h2 class="text-2xl font-bold mb-5 sm:mb-6">Unterseiten</h2>
+
+      <div class="grid gap-4 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <!-- Deka Immobilien – Luzern -->
+        <a href="Deka%20Immobilien/index.html" class="group block rounded-xl2 border hover:shadow-soft focus:shadow-soft focus:outline-none focus:ring-2 focus:ring-brand/30 transition">
+          <div class="p-4 sm:p-5">
+            <h3 class="font-semibold text-lg group-hover:text-brand">Deka Immobilien – Luzern</h3>
+            <p class="text-slate-600 mt-1 text-sm">Immobilie verkaufen in Luzern</p>
+          </div>
+        </a>
+
+        <!-- Gallen Immobilien – St. Gallen -->
+        <a href="Gallen%20Immobilien/index.html" class="group block rounded-xl2 border hover:shadow-soft focus:shadow-soft focus:outline-none focus:ring-2 focus:ring-brand/30 transition">
+          <div class="p-4 sm:p-5">
+            <h3 class="font-semibold text-lg group-hover:text-brand">Gallen Immobilien – St. Gallen</h3>
+            <p class="text-slate-600 mt-1 text-sm">Immobilie verkaufen in St. Gallen</p>
+          </div>
+        </a>
+
+        <!-- Hasler Immobilien – Bern -->
+        <a href="Hasler%20Immobilien%20Bern/index.html" class="group block rounded-xl2 border hover:shadow-soft focus:shadow-soft focus:outline-none focus:ring-2 focus:ring-brand/30 transition" aria-label="Hasler Immobilien – Immobilie verkaufen in Bern">
+          <div class="p-4 sm:p-5">
+            <h3 class="font-semibold text-lg group-hover:text-brand">Hasler Immobilien – Bern</h3>
+            <p class="text-slate-600 mt-1 text-sm">Immobilie verkaufen in Bern</p>
+          </div>
+        </a>
+
+        <!-- SAG Immobilien – Zürich (correct ü encoding) -->
+        <a href="SAG%20Immobilien%20in%20Z%C3%BCrich/index.html" class="group block rounded-xl2 border hover:shadow-soft focus:shadow-soft focus:outline-none focus:ring-2 focus:ring-brand/30 transition">
+          <div class="p-4 sm:p-5">
+            <h3 class="font-semibold text-lg group-hover:text-brand">SAG Immobilien – Zürich</h3>
+            <p class="text-slate-600 mt-1 text-sm">Immobilie verkaufen in Zürich</p>
+          </div>
+        </a>
+
+        <!-- Winti Immobilien – Winterthur -->
+        <a href="Winti-immobilien-in-Winterthur/index.html" class="group block rounded-xl2 border hover:shadow-soft focus:shadow-soft focus:outline-none focus:ring-2 focus:ring-brand/30 transition">
+          <div class="p-4 sm:p-5">
+            <h3 class="font-semibold text-lg group-hover:text-brand">Winti Immobilien – Winterthur</h3>
+            <p class="text-slate-600 mt-1 text-sm">Immobilie verkaufen in Winterthur</p>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- SEO tips -->
+    <section id="seo" class="bg-slate-50 py-12 sm:py-14 scroll-mt-24">
+      <div class="container px-4">
+        <h2 class="text-2xl font-bold mb-4">SEO-Checkliste je Unterseite</h2>
+        <ul class="list-disc pl-6 text-slate-700 space-y-2">
+          <li>Titel beginnt mit: <strong>“Immobilie verkaufen in &lt;Stadt&gt;”</strong></li>
+          <li>Eigene Meta-Description mit Stadtname</li>
+          <li>H1 enthält Stadtname; 600–900 Wörter lokaler Content (Quartiere, ÖV, Nachfrage)</li>
+          <li>Interne Links: Startseite ↔ andere Städte</li>
+          <li>Lokales JSON-LD (<em>RealEstateAgent</em>) mit Adresse/Telefon</li>
+          <li>Eigener Hero (z. B. <code>assets/hero-stadt.jpg</code>)</li>
+          <li>Starker CTA “Kostenlose Bewertung” oberhalb der Falz</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Testimonials (Swipe Carousel) -->
+    <section id="testimonials" class="bg-slate-50 py-12 sm:py-14 scroll-mt-24">
+      <div class="container px-4">
+        <!-- Header -->
+        <div class="mb-5 sm:mb-6 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3">
+          <div>
+            <p class="text-sm font-bold uppercase tracking-[0.12em] text-brand">Kundenstimmen</p>
+            <h2 class="text-2xl md:text-3xl font-bold leading-tight">Was Eigentümer über uns sagen</h2>
+            <p class="mt-1 text-slate-600">Echte Rückmeldungen aus Winterthur, Zürich, Bern & Umgebung.</p>
+          </div>
+          <!-- Rating pill -->
+          <div class="flex items-center gap-2 self-start sm:self-auto rounded-full border border-slate-200 bg-white px-3 py-1.5">
+            <svg width="18" height="18" viewBox="0 0 24 24" class="text-amber-500" aria-hidden="true"><path fill="currentColor" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <span class="text-sm font-semibold">4.9/5</span>
+            <span class="text-sm text-slate-600">aus 300+ Bewertungen</span>
+          </div>
+        </div>
+
+        <!-- Carousel -->
+        <div class="relative">
+          <!-- Track -->
+          <div id="tCarousel"
+               class="flex snap-x snap-mandatory overflow-x-auto gap-4 sm:gap-6 scroll-smooth pb-2
+                      touch-pan-x overscroll-x-contain select-none cursor-grab active:cursor-grabbing
+                      [-ms-overflow-style:none] [scrollbar-width:none]"
+               aria-roledescription="carousel"
+               aria-label="Kundenstimmen Carousel">
+            <!-- Slides: full width on mobile, 50% on md, 33% on lg -->
+            <!-- 1 -->
+            <figure class="snap-center shrink-0 w-[88%] sm:w-[70%] md:w-1/2 lg:w-1/3 rounded-xl2 border border-slate-200 bg-white p-5 sm:p-6 shadow-soft">
+              <div class="flex items-center gap-3">
+                <div class="h-10 w-10 rounded-full bg-gradient-to-br from-brand to-brand2 text-white grid place-items-center font-bold">FS</div>
+                <figcaption>
+                  <p class="font-semibold">Familie S., Winterthur</p>
+                  <p class="text-xs text-slate-500">Einfamilienhaus, Seen</p>
+                </figcaption>
+              </div>
+              <blockquote class="mt-3 text-slate-700">„Professionell, schnell und sehr transparent. Von der Bewertung bis zum Notar top begleitet – Preis über Erwartung erzielt.“</blockquote>
+              <div class="mt-3 flex items-center gap-1 text-amber-500" aria-label="Bewertung: 5 von 5 Sternen"><span>★★★★★</span></div>
+            </figure>
+
+            <!-- 2 -->
+            <figure class="snap-center shrink-0 w-[88%] sm:w-[70%] md:w-1/2 lg:w-1/3 rounded-xl2 border border-slate-200 bg-white p-5 sm:p-6 shadow-soft">
+              <div class="flex items-center gap-3">
+                <div class="h-10 w-10 rounded-full bg-gradient-to-br from-slate-300 to-slate-400 text-white grid place-items-center font-bold">HB</div>
+                <figcaption>
+                  <p class="font-semibold">Herr B., Zürich</p>
+                  <p class="text-xs text-slate-500">Eigentumswohnung, Wiedikon</p>
+                </figcaption>
+              </div>
+              <blockquote class="mt-3 text-slate-700">„Sehr gutes Käufer-Matching und exzellente Kommunikation. Abwicklung war zügig und zuverlässig.“</blockquote>
+              <div class="mt-3 flex items-center gap-1 text-amber-500" aria-label="Bewertung: 5 von 5 Sternen"><span>★★★★★</span></div>
+            </figure>
+
+            <!-- 3 -->
+            <figure class="snap-center shrink-0 w-[88%] sm:w-[70%] md:w-1/2 lg:w-1/3 rounded-xl2 border border-slate-200 bg-white p-5 sm:p-6 shadow-soft">
+              <div class="flex items-center gap-3">
+                <div class="h-10 w-10 rounded-full bg-gradient-to-br from-brand2 to-brand text-white grid place-items-center font-bold">AK</div>
+                <figcaption>
+                  <p class="font-semibold">A. Keller, Bern</p>
+                  <p class="text-xs text-slate-500">Mehrfamilienhaus, Breitenrain</p>
+                </figcaption>
+              </div>
+              <blockquote class="mt-3 text-slate-700">„Marktgerechte Bewertung, sehr gute Präsentation und strukturierter Prozess. Jederzeit gut beraten.“</blockquote>
+              <div class="mt-3 flex items-center gap-1 text-amber-500" aria-label="Bewertung: 5 von 5 Sternen"><span>★★★★★</span></div>
+            </figure>
+
+            <!-- 4 -->
+            <figure class="snap-center shrink-0 w-[88%] sm:w-[70%] md:w-1/2 lg:w-1/3 rounded-xl2 border border-slate-200 bg-white p-5 sm:p-6 shadow-soft">
+              <div class="flex items-center gap-3">
+                <div class="h-10 w-10 rounded-full bg-gradient-to-br from-brand to-brand2 text-white grid place-items-center font-bold">LM</div>
+                <figcaption>
+                  <p class="font-semibold">L. Müller, Winterthur</p>
+                  <p class="text-xs text-slate-500">Dachwohnung, Töss</p>
+                </figcaption>
+              </div>
+              <blockquote class="mt-3 text-slate-700">„Top Fotos, starke Nachfrage, schneller Verkauf. Sehr angenehme Zusammenarbeit.“</blockquote>
+              <div class="mt-3 flex items-center gap-1 text-amber-500"><span>★★★★★</span></div>
+            </figure>
+
+            <!-- 5 -->
+            <figure class="snap-center shrink-0 w-[88%] sm:w-[70%] md:w-1/2 lg:w-1/3 rounded-xl2 border border-slate-200 bg-white p-5 sm:p-6 shadow-soft">
+              <div class="flex items-center gap-3">
+                <div class="h-10 w-10 rounded-full bg-gradient-to-br from-slate-300 to-slate-400 text-white grid place-items-center font-bold">RS</div>
+                <figcaption>
+                  <p class="font-semibold">R. Steiner, Zürich</p>
+                  <p class="text-xs text-slate-500">Reiheneinfamilienhaus, Oerlikon</p>
+                </figcaption>
+              </div>
+              <blockquote class="mt-3 text-slate-700">„Transparente Beratung und realistische Preisstrategie – Ergebnis hat überzeugt.“</blockquote>
+              <div class="mt-3 flex items-center gap-1 text-amber-500"><span>★★★★★</span></div>
+            </figure>
+
+            <!-- 6 -->
+            <figure class="snap-center shrink-0 w-[88%] sm:w-[70%] md:w-1/2 lg:w-1/3 rounded-xl2 border border-slate-200 bg-white p-5 sm:p-6 shadow-soft">
+              <div class="flex items-center gap-3">
+                <div class="h-10 w-10 rounded-full bg-gradient-to-br from-brand2 to-brand text-white grid place-items-center font-bold">NG</div>
+                <figcaption>
+                  <p class="font-semibold">N. Graf, Winterthur</p>
+                  <p class="text-xs text-slate-500">Eigentumswohnung, Seen</p>
+                </figcaption>
+              </div>
+              <blockquote class="mt-3 text-slate-700">„Schnelle Rückmeldung, klare Schritte, sicher durch den ganzen Prozess geführt.“</blockquote>
+              <div class="mt-3 flex items-center gap-1 text-amber-500"><span>★★★★★</span></div>
+            </figure>
+          </div>
+
+          <!-- Controls -->
+          <div class="mt-4 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <button id="tPrev" class="h-10 w-10 rounded-full border border-slate-200 bg-white grid place-items-center hover:bg-slate-50" aria-label="Vorheriges Testimonial">
+                <svg width="18" height="18" viewBox="0 0 24 24"><path fill="currentColor" d="M15.41 7.41L14 6l-6 6l6 6l1.41-1.41L10.83 12z"/></svg>
+              </button>
+              <button id="tNext" class="h-10 w-10 rounded-full border border-slate-200 bg-white grid place-items-center hover:bg-slate-50" aria-label="Nächstes Testimonial">
+                <svg width="18" height="18" viewBox="0 0 24 24"><path fill="currentColor" d="m10 6l-1.41 1.41L13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+              </button>
+            </div>
+            <!-- Dots -->
+            <div id="tDots" class="flex items-center gap-2" aria-label="Carousel Pager"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Kontakt (simple anchor target so CTA works) -->
+    <section id="kontakt" class="container px-4 pb-16 scroll-mt-24">
+      <h2 class="text-2xl font-bold mb-4">Kontakt</h2>
+      <p class="text-slate-600">Wählen Sie Ihre Unterseite und nutzen Sie das dortige Formular oder die dort angegebenen Kontaktdaten.</p>
+    </section>
+
+    <footer class="border-t">
+      <div class="container h-16 px-4 flex items-center justify-between text-sm">
+        <span>© <span id="y"></span> Immobilie verkaufen</span>
+        <nav class="hidden sm:flex gap-4">
+          <a href="#staedte" class="hover:underline">Unterseiten</a>
+          <a href="#" class="hover:underline">Sitemap (später)</a>
+        </nav>
+      </div>
+    </footer>
+
+    <!-- Mobile + Smooth Scroll + Header Shadow -->
+    <script>
+      const h = document.getElementById("siteHeader");
+      addEventListener("scroll", () => {
+        if (scrollY > 4) h.classList.add("shadow-[0_10px_30px_rgba(2,12,27,.08)]");
+        else h.classList.remove("shadow-[0_10px_30px_rgba(2,12,27,.08)]");
+      });
+      document.getElementById("y").textContent = new Date().getFullYear();
+
+      // Mobile menu toggle
+      const menuBtn = document.getElementById("menuBtn");
+      const mobileMenu = document.getElementById("mobileMenu");
+      if (menuBtn && mobileMenu) {
+        menuBtn.addEventListener("click", () => {
+          const open = !mobileMenu.hasAttribute("data-js-hidden");
+          if (open) {
+            mobileMenu.setAttribute("data-js-hidden", "");
+            menuBtn.setAttribute("aria-expanded", "false");
+          } else {
+            mobileMenu.removeAttribute("data-js-hidden");
+            menuBtn.setAttribute("aria-expanded", "true");
+          }
+        });
+        // close menu when a link is clicked
+        mobileMenu.querySelectorAll('a[href^="#"]').forEach((a) => {
+          a.addEventListener("click", () => {
+            mobileMenu.setAttribute("data-js-hidden", "");
+            menuBtn.setAttribute("aria-expanded", "false");
+          });
+        });
+      }
+
+      // Smooth scroll (accounts for sticky header)
+      const headerH = () => (h ? h.offsetHeight + 6 : 0);
+      document.querySelectorAll('a[href^="#"]').forEach((a) => {
+        a.addEventListener("click", (e) => {
+          const id = a.getAttribute("href");
+          if (!id || id === "#") return;
+          const el = document.querySelector(id);
+          if (!el) return;
+          e.preventDefault();
+          const y = el.getBoundingClientRect().top + window.scrollY - headerH();
+          window.scrollTo({ top: y, behavior: "smooth" });
+          history.pushState(null, "", id);
+        });
+      });
+    </script>
+
+    <!-- Testimonials Carousel JS -->
+    <script>
+      (function(){
+        const track = document.getElementById('tCarousel');
+        if(!track) return;
+
+        // Ensure snap (in case classes fail)
+        track.style.scrollSnapType = 'x mandatory';
+
+        const slides = Array.from(track.children); // only figures exist inside
+        const prev = document.getElementById('tPrev');
+        const next = document.getElementById('tNext');
+        const dotsWrap = document.getElementById('tDots');
+
+        // Build dots
+        const dots = slides.map((_,i)=>{
+          const b = document.createElement('button');
+          b.className = 'h-2.5 w-2.5 rounded-full bg-slate-300 aria-[current=true]:bg-brand transition';
+          b.setAttribute('aria-label', `Gehe zu Slide ${i+1}`);
+          b.addEventListener('click', ()=>goTo(i));
+          dotsWrap?.appendChild(b);
+          return b;
+        });
+
+        function gapPx(){
+          const s = getComputedStyle(track);
+          return parseFloat(s.gap || s.columnGap || '16') || 16;
+        }
+        function itemWidth(){
+          const first = slides[0];
+          if(!first) return 0;
+          const r = first.getBoundingClientRect();
+          return r.width + gapPx();
+        }
+        function indexFromScroll(){
+          const idx = Math.round(track.scrollLeft / itemWidth());
+          return Math.max(0, Math.min(idx, slides.length-1));
+        }
+        function updateDots(){
+          const idx = indexFromScroll();
+          dots.forEach((d,i)=>d.setAttribute('aria-current', i===idx ? 'true':'false'));
+        }
+        function goTo(i){
+          track.scrollTo({ left: i * itemWidth(), behavior: 'smooth' });
+        }
+
+        prev?.addEventListener('click', ()=> goTo(Math.max(0, indexFromScroll()-1)));
+        next?.addEventListener('click', ()=> goTo(Math.min(slides.length-1, indexFromScroll()+1)));
+
+        // Sync dots on scroll (throttled)
+        track.addEventListener('scroll', () => {
+          if (track._raf) cancelAnimationFrame(track._raf);
+          track._raf = requestAnimationFrame(updateDots);
+        });
+
+        // Improve wheel on desktop (ignore vertical wheels)
+        track.addEventListener('wheel', (e)=>{
+          if (Math.abs(e.deltaX) < Math.abs(e.deltaY)) return;
+          requestAnimationFrame(updateDots);
+        }, {passive:true});
+
+        window.addEventListener('resize', ()=> setTimeout(updateDots, 150));
+        updateDots();
+
+        // Optional autoplay (stops on interaction)
+        let auto = setInterval(()=> next?.click(), 4500);
+        ['pointerdown','touchstart','mouseenter','focusin'].forEach(evt=>{
+          track.addEventListener(evt, ()=> { if(auto){ clearInterval(auto); auto=null; } }, {passive:true});
+        });
+      })();
+    </script>
+  </body>
+</html>
