@@ -7,6 +7,8 @@
     <meta name="description" content="Schneller Einstieg: Wählen Sie Ihre Stadt/Marke für 'Immobilie verkaufen' Seiten. Kostenlose Bewertung, klare Vermarktung, starke Calls-to-Action." />
     <meta property="og:title" content="Immobilie verkaufen – Standorte & Marken" />
     <meta property="og:locale" content="de_CH" />
+    <link rel="canonical" href="https://example.com/" />
+    <meta property="og:url" content="https://example.com/" />
 
     <!-- Tailwind (CDN) -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -44,6 +46,16 @@
       /* Hide webkit scrollbar just for the carousel track */
       #tCarousel::-webkit-scrollbar{ display:none; }
     </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Immobilie verkaufen – Standorte & Marken",
+      "url": "https://example.com/",
+      "inLanguage": "de-CH",
+      "description": "Schneller Einstieg: Wählen Sie Ihre Stadt/Marke für 'Immobilie verkaufen' Seiten. Kostenlose Bewertung, klare Vermarktung, starke Calls-to-Action."
+    }
+    </script>
   </head>
 
   <body class="text-dark bg-white">
@@ -154,7 +166,7 @@
     </section>
 
     <!-- SEO tips -->
-    <section id="seo" class="bg-slate-50 py-12 sm:py-14 scroll-mt-24">
+    <!-- <section id="seo" class="bg-slate-50 py-12 sm:py-14 scroll-mt-24">
       <div class="container px-4">
         <h2 class="text-2xl font-bold mb-4">SEO-Checkliste je Unterseite</h2>
         <ul class="list-disc pl-6 text-slate-700 space-y-2">
@@ -167,7 +179,24 @@
           <li>Starker CTA “Kostenlose Bewertung” oberhalb der Falz</li>
         </ul>
       </div>
+    </section> -->
+
+       <!-- SEO-Hinweise / Checklist -->
+    <section id="seo" class="container px-4 pb-12 sm:pb-14 scroll-mt-24">
+      <h2 class="text-2xl font-bold mb-4">SEO-Checkliste für jede Unterseite</h2>
+      <ol class="list-decimal pl-5 space-y-2 text-slate-700">
+        <li><strong>Titel</strong>: „{Marke} – Immobilie verkaufen in {Stadt}“ (max. ~60 Zeichen).</li>
+        <li><strong>Meta-Description</strong>: Nutzenversprechen + CTA (120–160 Zeichen).</li>
+        <li><strong>H1</strong>: „Immobilie verkaufen in {Stadt} – mit {Marke}“.</li>
+        <li><strong>Strukturierte Daten</strong>: <code>RealEstateAgent</code>, <code>WebPage</code>, <code>BreadcrumbList</code>, optional <code>FAQPage</code>.</li>
+        <li><strong>Unique Content</strong>: 300–600 Wörter lokalisiert (Quartiere, Nachfrage, Preisspannen).</li>
+        <li><strong>Interne Links</strong>: Rücklink zum Hub + Nachbarstädte.</li>
+        <li><strong>Medien</strong>: 1–2 WebP/JPEG mit <code>alt</code>-Text „Wohnung/Haus in {Stadt}“.</li>
+        <li><strong>CTA</strong>: „Kostenlose Bewertung“ + Telefon.</li>
+        <li><strong>Technik</strong>: Canonical, hreflang, sauberes HTML, schnelle Ladezeit.</li>
+      </ol>
     </section>
+
 
     <!-- Testimonials (Swipe Carousel) -->
     <section id="testimonials" class="bg-slate-50 py-12 sm:py-14 scroll-mt-24">
